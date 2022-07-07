@@ -1,0 +1,17 @@
+.card{
+
+    background-color: #f1ab8a;
+    box-shadow: 10px 5px 5px #d4d6d9;
+    border-radius: 20px;
+    align-self: start;
+    text-align: left;
+    padding: 15px;
+    width: 250px;
+    height: 180px;
+    font-size: small;
+    text-align: center;
+    margin: 10px;
+}
+.card h3{
+    font-size: medium;
+}
