@@ -1,0 +1,9 @@
+.ValoresPosibles{
+    
+    display: flex;
+    flex-direction: column;
+    border: 2px red;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 3%;
+}

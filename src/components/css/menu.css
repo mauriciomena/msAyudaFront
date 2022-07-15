@@ -4,4 +4,15 @@
     border-radius: 20px;
     align-self: start;
     text-align: left;
+    
+   
 }
+.Menu .visible{
+    display: none;
+}
+
+.Menu a {
+    text-decoration: none;
+    font-style: normal;
+    color: black;
+  }
