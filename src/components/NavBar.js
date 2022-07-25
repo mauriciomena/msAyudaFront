@@ -3,12 +3,12 @@ import './css/navBar.css'
 function NavBar() {
     return ( <>
                 <div className='navBar'>
-                    <div>logo</div>
-                    <h1>Gestion de Ayudas</h1>
+                    {/* <div>logo</div> */}
+                    <h2>Gestion de Ayudas</h2>
                         {/* <div id="logo">
                             <img  src="m1.png"></img>
                         </div> */}
-                    <div>usuario</div>                    
+                    {/* <div>usuario</div>                     */}
                 </div>
     </> );
 }

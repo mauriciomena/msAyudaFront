@@ -31,32 +31,36 @@ function EditEvento() {
     }, [idOpcion])
 
     return  (   <>
-                <div >
+                <div className='EditEvento' >
                     {ayuda.length === 0 && <p>Cargando informacion del evento...</p>}
                     <div>
                         <h2>Edicion de {ayuda.denominacion} </h2>
-                        <form>
-                            <div>
-                                <label>Detalle:</label>
-                                <input type="text" value={ayuda.destalle}/>                                    
-                            </div>
+                        <form className='form'>
+                          
                             <div>
                                 <label>Palabras clave:
                                     {/* <input type="text" value={ayuda.palabra_clave} onChange={this.handleChange} /> */}
-                                    <input type="text" value={ayuda.palabra_clave}/>                                    
+                                    <div><input type="text" value={ayuda.palabra_clave}/> </div>
                                 </label>
-                                
                             </div>
                             <div>
+                                <label>Detalle:</label>
+                                <div><textarea  value={ayuda.destalle}/></div>
+                            </div>
+                            
+                            <div>
                                 <label>Fecha de Actualización:</label>
-                                <input type='date'>{ayuda.fecha_actualizacion}</input>
+                                <div><input type='date'>{ayuda.fecha_actualizacion}</input></div>
+                                
                             </div>                            
                             <div>
-                                <label>Etiquetas:</label>
-                                <input type='date'>{ayuda.etiquetas}</input>
+                                <label>Etiquetas:
+                                    <div><input type='date'>{ayuda.etiquetas}</input></div>
+                                </label>
                             </div>              
-                            
-                            <input type="submit" value="Enviar" />
+                            <div>
+                                <input type="submit" value="Enviar" />
+                            </div>
                         </form>
                     </div>
                     {/* <div className='EditEvento'>

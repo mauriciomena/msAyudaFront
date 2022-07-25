@@ -1,14 +1,29 @@
 .EditEvento{
     
     display: flex;
-    flex-direction: column;
-    border: 2px red;
-    flex-wrap: wrap;
+    flex-wrap:nowrap;
     box-sizing: border-box;
     margin: 3%;
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: #f7ddc6;
+    width: 80%;
+    height:600px;
+    align-items: center;
+    justify-content: center;
 }
 
+/* .EditEvento .form{
+    display: flex;
+    flex-direction: column;
+} */
+
 .EditEvento input{
-    padding: 15px;
-    width: 60%;
+    padding: 5px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.EditEvento textarea{
+    width: 100%;
 }

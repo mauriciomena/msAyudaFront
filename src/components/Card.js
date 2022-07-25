@@ -18,13 +18,15 @@ function Card(props) {
                             <i className="fa-solid fa-arrow-up-right-dots"></i>
                             <h3>{tarjeta.denominacion}</h3>
                         </div>
-                        <p>Detalle: {tarjeta.destalle}</p>
-                        <p>Palabras Clave: {tarjeta.palabra_clave}</p>
-                        <p>Fecha de Actualizacion: {tarjeta.fecha_actualizacion}</p>
-                        <p>Etiquetas: {tarjeta.etiquetas}</p>
+                        <div>
+                            <p>Detalle: {tarjeta.destalle}</p>
+                            <p>Palabras Clave: {tarjeta.palabra_clave}</p>
+                            <p>Fecha de Actualizacion: {tarjeta.fecha_actualizacion}</p>
+                            {/* <p>Etiquetas: {tarjeta.etiquetas}</p> */}
+                        </div>
 
                         <div className='edit'> 
-                            <Link  to={'/menu/evento/edit/'+tarjeta.id}> <i class="fa-solid fa-pen-to-square"></i></Link>
+                            <Link  to={'/evento/edit/'+tarjeta.id}><i class="fa-solid fa-pen-to-square"></i> Editar </Link>
                         </div>
                     </div>
                 </Link>

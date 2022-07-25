@@ -1,9 +1,22 @@
 .ValoresPosibles{
-    
+    text-align: left;
     display: flex;
     flex-direction: column;
     border: 2px red;
     flex-wrap: wrap;
     box-sizing: border-box;
     margin: 3%;
+}
+
+.ValoresPosibles tr td{
+    background-color: white;
+    width: 5px;
+    border-radius: 3px;
+}
+
+.ValoresPosibles tr th{
+    text-align: center;
+    background-color: gray;
+    padding: 7px;
+    
 }

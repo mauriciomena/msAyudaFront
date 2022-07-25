@@ -23,8 +23,8 @@ function App() {
               <Route exact path="/" element={<Landing/>} ></Route>
               <Route exact path="/menu/:id" element={<Cards/>} ></Route>
               <Route exact path="/menu/evento/:id" element={<ValoresPosibles/>} ></Route>
-              <Route exact path="/menu/evento/edit/:id" element={<EditEvento/>} ></Route>
-              
+              <Route exact path="/evento/edit/:id" element={<EditEvento/>} ></Route>
+                            
             </Routes>
           </div>
       </div>

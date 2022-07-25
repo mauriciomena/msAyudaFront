@@ -1,8 +1,6 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import LongCard from './LongCard'
-import Card from './Card'
 import './css/ValoresPosibles.css'
 
 function ValoresPosibles() {
@@ -38,19 +36,31 @@ function ValoresPosibles() {
                     <div>
                         <h2>Variantes posibles del Evento:  {ayuda.denominacion} </h2>
                         <h3>( {ayuda.destalle} )</h3>
-                        <h4>Este evento permite....</h4>
+                        <p>{ayuda.etiquetas}</p>
                     </div>
                     <div className='ValoresPosibles'>
-                        {valores.length !== 0 && valores.map((evento,index)=>{
-                            
-                            let tarjeta = {
-                                id:            evento.id, 
-                                denominacion : evento.denominacion_valor,
-                                valor : evento.valor
-                                };                
+                        <table>
+                            <tr>
+                                <th>Valor</th>
+                                <th>Descripcion</th>
+                                <th>doc</th>
+                            </tr>
+                            {valores.length !== 0 && valores.map(evento=>{
+                                let tarjeta = {
+                                    id:            evento.id, 
+                                    denominacion : evento.denominacion_valor,
+                                    valor : evento.valor
+                                    };                
+                                
+                                return( <tr>
+                                    <td>{tarjeta.valor}</td>
+                                    <td>{tarjeta.denominacion}</td>
+                                    {/* <td><i class="fa-solid fa-download"></i></td> */}
+                                    <td><i class="fa-solid fa-circle-plus"></i></td>
+                                </tr>)
+                            })}
+                        </table>
                         
-                        return <LongCard key={index} info={{...tarjeta}}/>
-                        })}
                     </div>
                     
                 </div> 
