@@ -29,6 +29,12 @@ function Cards() {
             SetinfoOpcion(data.opcion.dataValues)
         })
         .catch(error => console.log(error));
+
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
     }, [idOpcion])
 
     return  (   <>
