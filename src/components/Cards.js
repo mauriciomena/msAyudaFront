@@ -11,7 +11,7 @@ function Cards() {
     
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.95:8000/menu/'+idOpcion.id
+        let endPoint = 'http://192.168.10.22:8000/menu/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -21,7 +21,7 @@ function Cards() {
     }, [])
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.95:8000/menu/'+idOpcion.id
+        let endPoint = 'http://192.168.10.22:8000/menu/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {

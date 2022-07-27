@@ -21,7 +21,7 @@ function UploadFiles(props) {
     //     formData.append("id",id)
     //     formData.append("image",file.current.files[0])
 
-    //     fetch("http://192.168.10.95:3030/menu/upfilevaloresposibles/"+id,
+    //     fetch("http://192.168.10.22:3030/menu/upfilevaloresposibles/"+id,
     //     {
     //         method: 'POST',
     //         headers: {

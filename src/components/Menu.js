@@ -24,7 +24,7 @@ function Menu(){
     };
 
     useEffect(() => {
-        fetch('http://192.168.10.95:8000/menu')
+        fetch('http://192.168.10.22:8000/menu')
         .then(response => response.json())
         .then(data => {
             setMenu(data.data)

@@ -13,7 +13,7 @@ function ValoresPosibles() {
     const [ visible, SetVisible] = useState(false)
     
     useEffect(() => {
-        let endPoint = 'http://192.168.10.95:8000/menu/evento/'+idOpcion.id
+        let endPoint = 'http://192.168.10.22:8000/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -24,7 +24,7 @@ function ValoresPosibles() {
     }, [])
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.95:8000/menu/evento/'+idOpcion.id
+        let endPoint = 'http://192.168.10.22:8000/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
