@@ -2,11 +2,15 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import './css/ValoresPosibles.css'
+import UploadFiles from './UploadFiles';
+
 
 function ValoresPosibles() {
     const idOpcion = useParams()
     const [ valores,Setvalores ]= useState([])
     const [ ayuda,Setayuda ]= useState([])    
+    const [ idValor,SetidValor ]= useState(0)        
+    const [ visible, SetVisible] = useState(false)
     
     useEffect(() => {
         let endPoint = 'http://192.168.10.95:8000/menu/evento/'+idOpcion.id
@@ -30,6 +34,12 @@ function ValoresPosibles() {
         .catch(error => console.log(error));
     }, [idOpcion])
 
+
+    const handleClick = (id) =>{
+        !visible? SetVisible(true): SetVisible(false)
+        SetidValor(id)
+    }
+
     return  (   <>
                 <div >
                     {ayuda.length === 0 && <p>Cargando informacion del evento...</p>}
@@ -43,7 +53,8 @@ function ValoresPosibles() {
                             <tr>
                                 <th>Valor</th>
                                 <th>Descripcion</th>
-                                <th>doc</th>
+                                <th>Documento</th>
+                                <th>Imagen</th>
                             </tr>
                             {valores.length !== 0 && valores.map(evento=>{
                                 let tarjeta = {
@@ -56,11 +67,12 @@ function ValoresPosibles() {
                                     <td>{tarjeta.valor}</td>
                                     <td>{tarjeta.denominacion}</td>
                                     {/* <td><i class="fa-solid fa-download"></i></td> */}
-                                    <td><i class="fa-solid fa-circle-plus"></i></td>
+                                    <td className='col-3'><i class="fa-solid fa-circle-plus"></i></td>
+                                    <td onClick={()=>{ handleClick(tarjeta.id) }} className='col-4'><i class="fa-solid fa-circle-plus"></i></td>
                                 </tr>)
                             })}
                         </table>
-                        
+                        { visible &&  <UploadFiles id={idValor}/>}                        
                     </div>
                     
                 </div> 

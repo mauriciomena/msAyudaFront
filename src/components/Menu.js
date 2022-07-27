@@ -60,7 +60,6 @@ function Menu(){
 
     return (
         <>
-            <Buscar/>
             { menu.length === 0 && <p>Cargando Menu...</p>  }
             {
                 <ul className='Menu'>

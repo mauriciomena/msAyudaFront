@@ -1,10 +1,13 @@
+import './css/buscar.css'
+
 function Buscar() {
-    return ( <>
+    return ( <div className='buscar'>
                 <form>
                     <input type="text"></input>
-                    <button>buscar</button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    {/* <button>buscar</button> */}
                 </form>
-            </> );
+            </div> );
 }
 
 export default Buscar;

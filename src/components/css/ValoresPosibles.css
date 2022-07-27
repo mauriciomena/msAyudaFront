@@ -12,11 +12,12 @@
     background-color: white;
     width: 5px;
     border-radius: 3px;
+    text-align: center;
 }
 
 .ValoresPosibles tr th{
     text-align: center;
     background-color: gray;
     padding: 7px;
-    
 }
+

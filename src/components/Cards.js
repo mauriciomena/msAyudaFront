@@ -33,11 +33,10 @@ function Cards() {
 
     return  (   <>
                 <h2>Ayuda de la opción {infoOpcion.descripcion}</h2>
-
+                {eventos.length !== 0 && <p>Total de Eventos Encontrados {eventos.length}</p>}
                 <div className='cards'>
-                    {eventos.length === 0 && <p>Cargando tarjetas...</p>}
-                    {eventos.length !== 0 && eventos.map(evento=>{
-                            
+                    {eventos.length === 0 && <p>Cargando tarjetas...</p>}                    
+                    {eventos.length !== 0 && eventos.map(evento=>{                            
                         let tarjeta = {
                             id:            evento.msayuda[0].id, 
                             denominacion : evento.msayuda[0].denominacion,
@@ -48,6 +47,7 @@ function Cards() {
                     
                     return <Card key={tarjeta.denominacion} evento={{...tarjeta}}/>
                     })}
+
                 </div> 
             </>
         )

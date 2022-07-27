@@ -1,0 +1,33 @@
+#subir{
+    z-index: 1;
+    position: fixed;
+    display: block;
+    width: 50%;
+    height: 150px;
+    background-color: #f0c692;
+    margin: auto;
+    
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #d4d6d9;
+}
+
+#subir input{
+    width: auto;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#subir .primary{
+    width: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    color: green;
+}
+
+#subir .cancel{
+    width: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: red;
+}
