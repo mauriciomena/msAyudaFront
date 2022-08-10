@@ -1,58 +1,49 @@
 import {useState, useEffect, useRef} from 'react';
+import dataserver from '../dataserver';
 import './css/Uploadfile.css'
 
-
+const server = dataserver;
 function UploadFiles(props) {
-    const [ id, setId] = useState(0);
-    const [ file, setFile] = useState(null);
+    // const [ id, setId] = useState(0);
     const [ errores, setErrores] = useState([]);
-
     const imagen = useRef()
-
-    useEffect(()=>{
-        setId(props.id)
-    },[])
-  
-
-    // useEffect(()=>{
-    //     const formData = new FormData();  
-        
-        
-    //     formData.append("id",id)
-    //     formData.append("image",file.current.files[0])
-
-    //     fetch("http://192.168.10.22:3030/menu/upfilevaloresposibles/"+id,
-    //     {
-    //         method: 'POST',
-    //         headers: {
-    //             'access-token': "token si se usa"
-    //         },
-    //         body: formData                               
-    //     } )
-    //     .then(result => result.json())
-    //     .then(response => {          
-    //       setErrores(response.errors)
-    //     })
-    //     .catch(console.warn)  
-    // },[file])
-
 
     const subir = (e)=>{
         e.preventDefault();
-        setFile(imagen)
+        const formData = new FormData();  
+        
+        formData.append("id",props.id)
+        formData.append("imagen",imagen.current.files[0])
+        
+        fetch(server+"/menu/upfilevaloresposibles/",
+        {
+            method: 'POST',
+            headers: {
+                'access-token': "token si se usa"
+            },
+            body: formData
+        } )
+        .then(result => result.json())
+        .then(response => {         
+            console.log(response); 
+          setErrores(response.errors)
+        })
+        .catch(console.warn)  
     };
+
+
     return (   <>
                  <div id="subir">
-                    <form enctype="multipart/form-data" method="post" onSubmit={(e)=>{subir(e)}}  name="uploadArc">
-
+                    {errores && errores.msg && <p>{errores.msg}</p>}
+                    
+                    <form encType="multipart/form-data" method="post" onSubmit={(e)=>{subir(e)}}  name="uploadArc">
                         <label for="file">Seleccione el archivo</label>
                         <input ref={imagen} type="file" id="imagen" name="imagen" required accept="image/*,.pdf"/>
                         {errores && errores.imagen && <p>{errores.msg}</p>}
                         <div>
-                            <input type="submit" value="Enviar" ClassName="primary"/>
-                            <input type="reset" value="limpiar" ClassName="cancel"/>                        
+                            <input type="submit" value="Enviar" className="primary"/>
+                            <input type="reset" value="limpiar" className="cancel"/>                        
                         </div>
-
                     </form>
                  </div>
                 </>

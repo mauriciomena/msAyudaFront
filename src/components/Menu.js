@@ -3,6 +3,7 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom' ;
 import Buscar from './Buscar';
+import dataserver from '../dataserver';
 // import SubMenu from './SubMenu';
 
 
@@ -24,7 +25,7 @@ function Menu(){
     };
 
     useEffect(() => {
-        fetch('http://192.168.10.22:8000/menu')
+        fetch(dataserver+'/menu')
         .then(response => response.json())
         .then(data => {
             setMenu(data.data)

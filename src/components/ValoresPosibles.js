@@ -1,6 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import dataserver from '../dataserver';
 import './css/ValoresPosibles.css'
 import UploadFiles from './UploadFiles';
 
@@ -13,7 +14,7 @@ function ValoresPosibles() {
     const [ visible, SetVisible] = useState(false)
     
     useEffect(() => {
-        let endPoint = 'http://192.168.10.22:8000/menu/evento/'+idOpcion.id
+        let endPoint = dataserver+'/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -24,7 +25,7 @@ function ValoresPosibles() {
     }, [])
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.22:8000/menu/evento/'+idOpcion.id
+        let endPoint = dataserver+'/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -57,19 +58,25 @@ function ValoresPosibles() {
                                 <th>Imagen</th>
                             </tr>
                             {valores.length !== 0 && valores.map(evento=>{
+                                console.log(evento);
                                 let tarjeta = {
                                     id:            evento.id, 
                                     denominacion : evento.denominacion_valor,
-                                    valor : evento.valor
+                                    valor : evento.valor,
+                                    imagen: evento.imgurl
                                     };                
-                                
-                                return( <tr>
-                                    <td>{tarjeta.valor}</td>
-                                    <td>{tarjeta.denominacion}</td>
-                                    {/* <td><i class="fa-solid fa-download"></i></td> */}
-                                    <td className='col-3'><i class="fa-solid fa-circle-plus"></i></td>
-                                    <td onClick={()=>{ handleClick(tarjeta.id) }} className='col-4'><i class="fa-solid fa-circle-plus"></i></td>
-                                </tr>)
+                                console.log(tarjeta.imagen);
+                                return( <>
+                                    <tr>
+                                        <td>{tarjeta.valor}</td>
+                                        <td>{tarjeta.denominacion}</td>
+                                        {/* <td><i class="fa-solid fa-download"></i></td> */}
+                                        <td className='col-3'><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td onClick={()=>{ handleClick(tarjeta.id) }} className='col-4'><i class="fa-solid fa-circle-plus"></i></td>
+                                    </tr>
+                                    { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) }
+                                    
+                                </>)
                             })}
                         </table>
                         { visible &&  <UploadFiles id={idValor}/>}                        

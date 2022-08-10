@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import Card from './Card'
 import './css/cards.css'
+import dataserver from '../dataserver';
 
 function Cards() {
     const idOpcion = useParams()
@@ -11,7 +12,7 @@ function Cards() {
     
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.22:8000/menu/'+idOpcion.id
+        let endPoint = dataserver+'/menu/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -21,7 +22,7 @@ function Cards() {
     }, [])
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.22:8000/menu/'+idOpcion.id
+        let endPoint = dataserver+'/menu/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {

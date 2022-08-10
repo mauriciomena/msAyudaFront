@@ -1,6 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import dataserver from '../dataserver';
 import './css/EditEvento.css'
 
 function EditEvento() {
@@ -9,7 +10,7 @@ function EditEvento() {
     const [ ayuda,Setayuda ]= useState([])    
     
     useEffect(() => {
-        let endPoint = 'http://192.168.10.22:8000/menu/evento/'+idOpcion.id
+        let endPoint = dataserver+'/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -20,7 +21,7 @@ function EditEvento() {
     }, [])
 
     useEffect(() => {
-        let endPoint = 'http://192.168.10.22:8000/menu/evento/'+idOpcion.id
+        let endPoint = dataserver+'/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
