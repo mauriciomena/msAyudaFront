@@ -1,0 +1,11 @@
+#nuevoDocumento {
+    background-color: blue;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 100px;
+    width: 70%;
+    height: 70vh;
+}

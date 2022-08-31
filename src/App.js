@@ -7,6 +7,8 @@ import { Route, Routes } from 'react-router-dom'
 import ValoresPosibles from './components/ValoresPosibles';
 import EditEvento from './components/EditEvento';
 import NavBar from './components/NavBar';
+import Documentos from './components/Documentos';
+import NuevoDocumento from './components/NuevoDocumento';
 
 
 
@@ -21,6 +23,8 @@ function App() {
           <div className='contenedor'>
             <Routes>
               <Route exact path="/" element={<Landing/>} ></Route>
+              <Route exact path="/documentos" element={<Documentos/>} ></Route>
+              <Route exact path="/nuevodocumento" element={ <NuevoDocumento/>} ></Route>              
               <Route exact path="/menu/:id" element={<Cards/>} ></Route>
               <Route exact path="/menu/evento/:id" element={<ValoresPosibles/>} ></Route>
               <Route exact path="/evento/edit/:id" element={<EditEvento/>} ></Route>

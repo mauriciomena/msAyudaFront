@@ -1,12 +1,13 @@
 import './css/navBar.css'
 import Buscar from './Buscar';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return ( <>
                 <div className='navBar'>
                     {/* <div>logo</div> */}
-
-                    <h2>Gestion de Ayudas</h2>
+                    <Link to='/'> <h2>Gestion de Ayudas</h2></Link>
+                    
                     <Buscar />
                     <div className='user'><i class="fa-solid fa-user"></i></div>
                     

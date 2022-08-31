@@ -5,14 +5,15 @@ import Card from './Card'
 import './css/cards.css'
 import dataserver from '../dataserver';
 
-function Cards() {
+function Cards(props) {
     const idOpcion = useParams()
     const [ eventos,SetEventos ]= useState([])
     const [ infoOpcion,SetinfoOpcion ]= useState([])
     
+    let endPoint = dataserver+'/menu/'+idOpcion.id
 
     useEffect(() => {
-        let endPoint = dataserver+'/menu/'+idOpcion.id
+        
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {
@@ -22,7 +23,7 @@ function Cards() {
     }, [])
 
     useEffect(() => {
-        let endPoint = dataserver+'/menu/'+idOpcion.id
+        
         fetch(endPoint)
         .then(response => response.json())
         .then(data => {

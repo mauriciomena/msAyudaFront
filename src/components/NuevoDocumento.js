@@ -1,9 +1,10 @@
 import {useState, useEffect, useRef} from 'react';
 import dataserver from '../dataserver';
-import './css/Uploadfile.css'
+import './css/nuevoDocumento.css'
+
 
 const server = dataserver;
-function UploadFiles(props) {
+function NuevoDocumento(props) {
     // const [ id, setId] = useState(0);
     const [ errores, setErrores] = useState([]);
     const imagen = useRef()
@@ -15,7 +16,7 @@ function UploadFiles(props) {
         formData.append("id",props.id)
         formData.append("imagen",imagen.current.files[0])
         
-        fetch(server+"/menu/upfilevaloresposibles/",
+        fetch(server+"/menu/Updocumento/",
         {
             method: 'POST',
             headers: {
@@ -33,10 +34,35 @@ function UploadFiles(props) {
 
 
     return (   <>
-                 <div className='uploadFiles' id="subir">
+                 <div id='nuevoDocumento' >
                     {errores && errores.msg && <p>{errores.msg}</p>}
                     
                     <form encType="multipart/form-data" method="post" onSubmit={(e)=>{subir(e)}}  name="uploadArc">
+                        <div>
+                            <label>
+                                Titulo de Documento:
+                                <input type='text' 
+                                        id='Titulo'
+                                        placeholder='' />
+                            </label>
+                        </div>
+                        <div>   
+                            <label>
+                                Descripcion corta:
+                                <input type='text' 
+                                        id='Titulo'
+                                        placeholder='' />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Etiquetas:
+                                <input type='text' 
+                                        id='Titulo'
+                                        placeholder='' />
+                            </label>
+                        </div>
+
                         <label for="file">Seleccione el archivo</label>
                         <input ref={imagen} type="file" id="imagen" name="imagen" required accept="image/*,.pdf"/>
                         {errores && errores.imagen && <p>{errores.msg}</p>}
@@ -51,4 +77,4 @@ function UploadFiles(props) {
             );
 }
 
-export default UploadFiles;
+export default NuevoDocumento;
