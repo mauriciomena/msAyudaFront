@@ -1,5 +1,5 @@
 #nuevoDocumento {
-    background-color: blue;
+    background-color: #ffff;
     padding: 10px;
     border-radius: 5px;
     display: flex;
@@ -7,5 +7,22 @@
     margin: auto;
     margin-top: 100px;
     width: 70%;
-    height: 70vh;
+    height: 40vh;
+    align-items: center;
+    text-align: left;
+}
+#nuevoDocumento form{
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+}
+#nuevoDocumento .inpt{
+    padding: 5px;
+    width: 100%;
+}
+
+#nuevoDocumento .btn{
+    padding: 5px;
+    border-radius: 5px;
+    width: 30%;
 }

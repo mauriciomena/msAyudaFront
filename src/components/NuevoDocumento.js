@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useRef} from 'react';
 import dataserver from '../dataserver';
 import './css/nuevoDocumento.css'
 
@@ -7,16 +7,21 @@ const server = dataserver;
 function NuevoDocumento(props) {
     // const [ id, setId] = useState(0);
     const [ errores, setErrores] = useState([]);
-    const imagen = useRef()
+    const documento     = useRef()
+    const titulo        = useRef()
+    const descripcion   = useRef()
+    const etiquetas     = useRef()
 
     const subir = (e)=>{
         e.preventDefault();
         const formData = new FormData();  
         
-        formData.append("id",props.id)
-        formData.append("imagen",imagen.current.files[0])
+        formData.append("documento",documento.current.files[0])
+        formData.append("titulo",titulo.current.value)
+        formData.append("descripcion",descripcion.current.value)
+        formData.append("etiquetas",etiquetas.current.value)
         
-        fetch(server+"/menu/Updocumento/",
+        fetch(server+"/menu/adddocumentos/",
         {
             method: 'POST',
             headers: {
@@ -41,34 +46,40 @@ function NuevoDocumento(props) {
                         <div>
                             <label>
                                 Titulo de Documento:
-                                <input type='text' 
-                                        id='Titulo'
+                                <input ref={titulo}
+                                        className='inpt'
+                                        type='text' 
+                                        id='titulo'
                                         placeholder='' />
                             </label>
                         </div>
                         <div>   
                             <label>
                                 Descripcion corta:
-                                <input type='text' 
-                                        id='Titulo'
+                                <input ref={descripcion}
+                                        className='inpt'
+                                        type='text' 
+                                        id='descripcion'
                                         placeholder='' />
                             </label>
                         </div>
                         <div>
                             <label>
                                 Etiquetas:
-                                <input type='text' 
-                                        id='Titulo'
+                                <input ref={etiquetas}
+                                        className='inpt'
+                                        type='text' 
+                                        id='etiquetas'
                                         placeholder='' />
                             </label>
                         </div>
 
                         <label for="file">Seleccione el archivo</label>
-                        <input ref={imagen} type="file" id="imagen" name="imagen" required accept="image/*,.pdf"/>
-                        {errores && errores.imagen && <p>{errores.msg}</p>}
+                        <input ref={documento} type="file" id="documento" name="documento" required accept="image/*,.pdf"/>
+                        {errores && errores.documento && <p>{errores.msg}</p>}
                         <div>
-                            <input type="submit" value="Enviar" className="primary"/>
-                            <input type="reset" value="limpiar" className="cancel"/>                        
+                            <input className='btn' type="submit" value="Enviar" />
+                            <input className='btn' type="reset" value="limpiar" />                        
                         </div>
                     </form>
                  </div>

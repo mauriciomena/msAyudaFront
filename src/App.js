@@ -22,7 +22,7 @@ function App() {
         </div>  
           <div className='contenedor'>
             <Routes>
-              <Route exact path="/" element={<Landing/>} ></Route>
+              <Route exact path="/" element={<Documentos/>} ></Route>
               <Route exact path="/documentos" element={<Documentos/>} ></Route>
               <Route exact path="/nuevodocumento" element={ <NuevoDocumento/>} ></Route>              
               <Route exact path="/menu/:id" element={<Cards/>} ></Route>
