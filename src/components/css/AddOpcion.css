@@ -1,0 +1,51 @@
+#AddOpcion{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 3%;
+}
+
+#AddOpcion input{
+    width: 60%;
+    padding: 8px;
+    border-radius: 5px;
+    border:none;
+    
+}
+#AddOpcion tr{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    
+}
+
+#AddOpcion tr td{
+    background-color: white;
+    border-radius: 3px;
+    text-align: left;
+}
+
+#AddOpcion tr th{
+    text-align: left;
+    background-color: gray;
+    padding: 7px;
+}
+
+#AddOpcion #btn{
+    background-color: #fc9357 ;
+    color: white;
+    padding: 4px;
+    border-radius: 3px;
+    width: 60px;
+    border: none;
+}
+#AddOpcion i{
+    font-size: 20px;
+}
+#AddOpcion .add{
+    font-size: 10px; 
+    margin: 2px;   
+}

@@ -1,7 +1,6 @@
 import './App.css';
 import Menu from './components/Menu';
 import Cards from './components/Cards';
-import Landing from './components/Landing';
 import { Route, Routes } from 'react-router-dom'
 
 import ValoresPosibles from './components/ValoresPosibles';
@@ -24,7 +23,9 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Documentos/>} ></Route>
               <Route exact path="/documentos" element={<Documentos/>} ></Route>
-              <Route exact path="/nuevodocumento" element={ <NuevoDocumento/>} ></Route>              
+              <Route exact path="/nuevodocumento"   element={ <NuevoDocumento id='INT'/>} ></Route>              
+              <Route exact path="/nuevafaq"  element={ <NuevoDocumento id='FAQ' />} ></Route>              
+              <Route exact path="/nuevoevento"  element={ <NuevoDocumento id='EVE' />} ></Route>                            
               <Route exact path="/menu/:id" element={<Cards/>} ></Route>
               <Route exact path="/menu/evento/:id" element={<ValoresPosibles/>} ></Route>
               <Route exact path="/evento/edit/:id" element={<EditEvento/>} ></Route>

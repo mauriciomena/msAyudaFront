@@ -10,7 +10,7 @@
   flex-wrap: nowrap;
   border: #61dafb 2px;
   box-sizing: border-box;
-  background-color: rgb(230, 240, 240);
+  background:linear-gradient(to top,   #f5b890 , #eeead4)
 }
 .contenedor {
   width: 100%;

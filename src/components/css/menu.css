@@ -1,15 +1,21 @@
 .Menu {
-    background-color: #efefd0;
+    background-color: #ffff;
     box-shadow: 10px 5px 5px #d4d6d9;
-    border-radius: 20px;
     align-self: start;
     text-align: left;
     
    
 }
-.Menu .visible{
+/* .Menu .visible{
     display: none;
 }
+.Menu li:hover{
+    background-color:#fc9357;
+} */
+
+/* .Menu li {
+    transition: background-color .5s;
+    } */
 
 .Menu a {
     text-decoration: none;

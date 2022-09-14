@@ -8,27 +8,28 @@ function Buscar() {
     const [ eventos,SetEventos ]= useState([])
     const [ valorBuscado,SetvalorBuscado ]= useState('')
     
-    let endPoint = dataserver+'/menu/buscar'
+    
 
-    useEffect(() => {
-        const formData = new FormData();          
-        formData.append("buscar",valorBuscado)        
+    // useEffect(() => {
+        
+    //     const formData = new FormData();          
+    //     formData.append("buscar",valorBuscado)        
 
-        fetch(endPoint,{
-            method: 'GET',
-            headers: {
-                'access-token': "token si se usa"
-            },
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            SetEventos(data.data)
+    //     fetch(dataserver+'/menu/buscar',{
+    //         method: 'GET',
+    //         headers: {
+    //             'access-token': "token si se usa"
+    //         },
+    //         body: formData
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         SetEventos(data.data)
             
-        })
-        .catch(error => console.log(error));
+    //     })
+    //     .catch(error => console.log(error));
 
-    }, [valorBuscado])
+    // }, [valorBuscado])
 
     const handdlebuscar = (e) => SetvalorBuscado(e.current.value)
 

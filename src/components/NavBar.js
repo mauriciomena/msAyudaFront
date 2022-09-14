@@ -6,9 +6,10 @@ function NavBar() {
     return ( <>
                 <div className='navBar'>
                     {/* <div>logo</div> */}
-                    <Link to='/'> <h2>Gestion de Ayudas</h2></Link>
                     
-                    <Buscar />
+                    <Link to='/'> <h2> <img src='logoms.png'/>  Gestion de Ayudas</h2></Link>
+                    
+                    {/* <Buscar /> */}
                     <div className='user'><i class="fa-solid fa-user"></i></div>
                     
                         {/* <div id="logo">

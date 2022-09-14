@@ -6,7 +6,6 @@
 .documentos .card{
     background-color: #ffffff;
     box-shadow: 10px 5px 5px #d4d6d9;
-    border-radius: 10px;
     align-self: start;
     padding: 20px;
     width: 350px;
@@ -29,9 +28,8 @@
     margin: auto;
 }
 .documentos .card .titulo{
-    background-color: #0064fa;
+    background-color: #fa8500;
     padding: 20px;
     color: white;
-    border-radius: 5px;
 }
 
