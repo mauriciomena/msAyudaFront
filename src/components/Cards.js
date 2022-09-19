@@ -11,50 +11,77 @@ function Cards(props) {
     const [ documentos,SetDocumentos ]= useState([])    
     const [ faqs,SetFaqs ]= useState([])    
     const [ infoOpcion,SetinfoOpcion ]= useState([])
+    const [ data,setData ]= useState([])
     
     let endPoint = dataserver+'/menu/'+idOpcion.id
+    
 
     useEffect(() => {
-        
-        fetch(endPoint)
-        .then(response => response.json())
-        .then(data => {
-            let eveloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
+        if (props.data && props.data.length > 0 ){
+            setData(props.data)            
+            let eveloc = props.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
             SetEventos(eveloc)
-            let docloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')
+            let docloc = props.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')
             
             SetDocumentos(docloc)            
-            let faq = data.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
+            let faq = props.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
             
-            SetFaqs(faq)                        
-        })
-        .catch(error => console.log(error));
+            SetFaqs(faq)   
+
+        }else{
+            if (idOpcion.id !== undefined){
+                fetch(endPoint)
+                .then(response => response.json())
+                .then(data => {
+                    let eveloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
+                    SetEventos(eveloc)
+                    let docloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')                    
+                    SetDocumentos(docloc)            
+                    let faq = data.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
+                    SetFaqs(faq)                        
+                })
+                .catch(error => console.log(error));
+            }
+        }
     }, [])
 
     useEffect(() => {
-        
-        fetch(endPoint)
-        .then(response => response.json())
-        .then(data => {
-            let eveloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
+        if (data && data.length > 0 ){
+
+            let eveloc = data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
             SetEventos(eveloc)
-            let docloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')
+            let docloc = data.filter(opcion => opcion.msayuda[0].tipo === 'INT')
             
             SetDocumentos(docloc)            
-            let faq = data.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
+            let faq = data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
             
-            SetFaqs(faq) 
-            
-            SetinfoOpcion(data.opcion.dataValues)
-        })
-        .catch(error => console.log(error));
+            SetFaqs(faq)   
 
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          });
-    }, [idOpcion])
+        }else{
+            
+            fetch(endPoint)
+            .then(response => response.json())
+            .then(data => {
+                let eveloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
+                SetEventos(eveloc)
+                let docloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')
+                
+                SetDocumentos(docloc)            
+                let faq = data.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
+                
+                SetFaqs(faq) 
+                
+                SetinfoOpcion(data.opcion.dataValues)
+            })
+            .catch(error => console.log(error));
+
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [idOpcion, data])
 
     return  (   <>
                 <h2>Ayuda de la opción {infoOpcion.descripcion}</h2>
@@ -69,7 +96,9 @@ function Cards(props) {
                             destalle : evento.msayuda[0].destalle,
                             palabra_clave : evento.msayuda[0].palabra_clave,
                             fecha_actualizacion: evento.msayuda[0].fecha_actualizacion,
-                            etiquetas: evento.msayuda[0].etiquetas};                
+                            etiquetas: evento.msayuda[0].etiquetas,
+                            tipo: 'EVE',
+                        };                
                     
                     return <Card key={tarjeta.denominacion} evento={{...tarjeta}}/>
                     })}
@@ -83,7 +112,8 @@ function Cards(props) {
                             destalle: documento.msayuda[0].destalle,
                             palabra_clave: documento.msayuda[0].palabra_clave,
                             fecha_actualizacion: documento.msayuda[0].fecha_actualizacion,
-                            etiquetas: documento.msayuda[0].etiquetas
+                            etiquetas: documento.msayuda[0].etiquetas,
+                            tipo:'INT'
                         };
 
                         return <Card key={tarjeta.denominacion} evento={{ ...tarjeta }} />
@@ -98,7 +128,8 @@ function Cards(props) {
                             destalle: faq.msayuda[0].destalle,
                             palabra_clave: faq.msayuda[0].palabra_clave,
                             fecha_actualizacion: faq.msayuda[0].fecha_actualizacion,
-                            etiquetas: faq.msayuda[0].etiquetas
+                            etiquetas: faq.msayuda[0].etiquetas,
+                            tipo:'FAQ'
                         };
 
                         return <Card key={tarjeta.denominacion} evento={{ ...tarjeta }} />

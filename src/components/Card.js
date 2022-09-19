@@ -8,15 +8,20 @@ function Card(props) {
         destalle : props.evento.destalle,
         palabra_clave : props.evento.palabra_clave,
         fecha_actualizacion: props.fecha_actualizacion,
-        etiquetas: props.evento.etiquetas
+        etiquetas: props.evento.etiquetas,
+        tipo:props.evento.tipo
     }
-    
+  
   return ( <>
                 <Link to={'/menu/evento/'+tarjeta.id}>
                     <div className='card'>
+                        
                         <div>
-                            <i className="fa-solid fa-arrow-up-right-dots"></i>
-                            <h3>{tarjeta.denominacion}</h3>
+                            
+                            <h3><i class={tarjeta.tipo==='EVE'?'fa-solid fa-gears':tarjeta.tipo==='FAQ'?'fa-solid fa-clipboard-question':'fa-solid fa-file'}></i>
+                                {tarjeta.denominacion}
+                            
+                            </h3>
                         </div>
                         <div>
                             <p>Detalle: {tarjeta.destalle}</p>
@@ -26,7 +31,8 @@ function Card(props) {
                         </div>
 
                         <div className='edit'> 
-                            <Link  to={'/evento/edit/'+tarjeta.id}><i class="fa-solid fa-pen-to-square"></i> Editar </Link>
+
+                            <Link  to={'/evento/edit/'+tarjeta.id}>Ver Más</Link>
                         </div>
                     </div>
                 </Link>
