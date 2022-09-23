@@ -173,19 +173,22 @@ function NuevoDocumento(props) {
                                             className='inpt'
                                             type='text' 
                                             id='titulo'
-                                            placeholder='' />
+                                            placeholder=''
+                                            maxlength="50" />
                                 </label>
                                 {errores && errores.titulo && <p>{errores.titulo.msg}</p>}
                             </div>
                             <div>   
                                 <label>
-                                    Descripcion corta:
-                                    <input ref={descripcion}
+                                    Informacion adicional:
+                                    <textarea  ref={descripcion}
                                             onBlur={(e)=>validaDescripcion(e)}
                                             className='inpt'
                                             type='text' 
                                             id='descripcion'
-                                            placeholder='' />
+                                            placeholder='1000 caracteres para escribir lo que necesario'
+                                            maxlength="1000">
+                                                </textarea>
                                 </label>
                                 {errores && errores.descripcion && <p>{errores.descripcion.msg}</p>}
                             </div>
@@ -197,7 +200,8 @@ function NuevoDocumento(props) {
                                             className='inpt'
                                             type='text' 
                                             id='etiquetas'
-                                            placeholder='#etiqueta' />
+                                            placeholder='#etiqueta'
+                                            maxlength="50" />
                                 </label>
                                 {errores && errores.etiqueta && <p>{errores.etiqueta.msg}</p>}
                             </div>

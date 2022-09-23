@@ -1,0 +1,35 @@
+.InfoAyuda{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    border: 2px red;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 3%;
+}
+
+.InfoAyuda tr td{
+    background-color: white;
+    width: 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.InfoAyuda tr th{
+    text-align: center;
+    background-color: gray;
+    padding: 7px;
+}
+
+.InfoAyuda img{
+    text-align: center;
+}
+
+.InfoAyuda .visor{
+    width: 100%;
+    height: 100vh;
+}
+.InfoAyuda p{
+    margin: 0%;
+    color: rgb(255, 153, 0);
+}
