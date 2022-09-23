@@ -52,13 +52,8 @@ function InfoAyuda() {
                         <h3>Etiquetas:</h3>
                         <p>{ayuda.etiquetas}</p>
                     </div>
-                    <h3>Opciones relacionadas:</h3>
-                    {ayuda.opciones && ayuda.opciones.length > 0 && ayuda.opciones.map((   opcion,index) => {return <p key={index}>{opcion.vw_menu.opcion}</p>})}
-            
-                    <embed className='visor' src={ayuda.imgurl} type="application/pdf" /> 
-                    
                     {valores.length !== 0 && 
-                     <div >
+                     <div className='valoresposibles'>
                         <table>
                             <tr>
                                 <th>Valor</th>
@@ -74,16 +69,15 @@ function InfoAyuda() {
                                     valor : evento.valor,
                                     imagen: evento.imgurl
                                     };                
-                                console.log(tarjeta.imagen);
+                                
                                 return( <>
                                     <tr>
                                         <td>{tarjeta.valor}</td>
                                         <td>{tarjeta.denominacion}</td>
-                                        {/* <td><i class="fa-solid fa-download"></i></td> */}
                                         <td className='col-3'><i class="fa-solid fa-circle-plus"></i></td>
                                         <td onClick={()=>{ handleClick(tarjeta.id) }} className='col-4'><i class="fa-solid fa-circle-plus"></i></td>
                                     </tr>
-                                    { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) }
+                                    {/* { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) } */}
                                     
                                 </>)
                             })}
@@ -91,6 +85,9 @@ function InfoAyuda() {
                         { visible &&  <UploadFiles id={idValor}/>}                        
                     </div>
                     }
+                    <h3>Opciones relacionadas:</h3>
+                    {ayuda.opciones && ayuda.opciones.length > 0 && ayuda.opciones.map((   opcion,index) => {return <p key={index}>{opcion.vw_menu.opcion}</p>})}
+                    {ayuda.imgurl && <embed className='visor' src={ayuda.imgurl} type="application/pdf" /> }
                    
                     
                 </div> 

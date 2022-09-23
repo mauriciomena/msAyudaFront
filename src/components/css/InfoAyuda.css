@@ -8,6 +8,16 @@
     margin: 3%;
 }
 
+
+.InfoAyuda h2{
+    font-size: 40px;
+    color: #ff6600;
+}
+
+.InfoAyuda table{
+    width: 100%;
+}
+
 .InfoAyuda tr td{
     background-color: white;
     width: 5px;
@@ -31,5 +41,5 @@
 }
 .InfoAyuda p{
     margin: 0%;
-    color: rgb(255, 153, 0);
+    color: #ff6600;
 }
