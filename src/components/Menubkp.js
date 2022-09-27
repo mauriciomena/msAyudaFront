@@ -58,6 +58,7 @@ function Menu(){
         setMadres(madres)
     }, [menu])
 
+
     return (
         <>
             { menu.length === 0 && <p>Cargando Menu...</p>  }
@@ -67,7 +68,7 @@ function Menu(){
                         return <li key={op.madre.opcion}>{op.madre.descripcion}
                             <ul >{op.hija.map(hi => <li key={hi.opcion}>
                                 {hi.descripcion}
-                                <ul> {getHijas(hi.opcion).map(i => <li key={i.opcion}>
+                                <ul  > {getHijas(hi.opcion).map(i => <li key={i.opcion}>
                                     <Link to={'menu/' + i.id}>{i.descripcion}  </Link>
                                     <ul  > {getHijas(i.opcion).map(j => <li key={j.opcion}>
                                         <Link to={'menu/' + j.id}> {j.descripcion} </Link>

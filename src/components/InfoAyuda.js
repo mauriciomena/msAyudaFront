@@ -14,6 +14,14 @@ function InfoAyuda() {
     const [ visible, SetVisible] = useState(false)
     
     useEffect(() => {
+
+        console.log('monta');
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+
         let endPoint = dataserver+'/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
@@ -22,9 +30,17 @@ function InfoAyuda() {
             Setayuda(data.evento)
         })
         .catch(error => console.log(error));
+        
     }, [])
 
     useEffect(() => {
+        console.log('actualiza');
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+
         let endPoint = dataserver+'/menu/evento/'+idOpcion.id
         fetch(endPoint)
         .then(response => response.json())
@@ -34,8 +50,10 @@ function InfoAyuda() {
             console.log(data);
         })
         .catch(error => console.log(error));
+
     }, [idOpcion])
 
+    
 
     const handleClick = (id) =>{
         !visible? SetVisible(true): SetVisible(false)

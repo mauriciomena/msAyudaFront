@@ -75,13 +75,12 @@ function Cards(props) {
             })
             .catch(error => console.log(error));
 
-            window.scroll({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
+          
         }
     }, [idOpcion, data])
+
+
+    
 
     return  (   <>
                 <h2>Ayuda de la opción {infoOpcion.descripcion}</h2>
@@ -93,7 +92,7 @@ function Cards(props) {
                 </div>
                                        
                
-                <div id='faq' className='cards'>
+                <div  id='faq' className='cards'>
                     {faqs.length !== 0 && faqs.map(faq => {
                         let tarjeta = {
                             id: faq.msayuda[0].id,
@@ -108,7 +107,7 @@ function Cards(props) {
                         return <Card key={tarjeta.denominacion} evento={{ ...tarjeta }} />
                     })}
                 </div>
-                <div id='eve' className='cards'>
+                <div  id='eve' className='cards'>
                     {eventos.length === 0 && <p>Cargando tarjetas...</p>}                    
                     {eventos.length !== 0 && eventos.map(evento=>{                            
                         let tarjeta = {
@@ -125,7 +124,7 @@ function Cards(props) {
                     })}
                 </div>    
 
-                <div id='doc' className='cards'>
+                <div  id='doc' className='cards'>
                     {documentos.length !== 0 && documentos.map(documento => {
                         let tarjeta = {
                             id: documento.msayuda[0].id,
