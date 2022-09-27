@@ -30,10 +30,10 @@ function Card(props) {
                             {/* <p>Etiquetas: {tarjeta.etiquetas}</p> */}
                         </div>
 
-                        <div className='edit'> 
+                        {/* <div className='edit'> 
 
                             <Link  to={'/evento/edit/'+tarjeta.id}>Ver Más</Link>
-                        </div>
+                        </div> */}
                     </div>
                 </Link>
             </>

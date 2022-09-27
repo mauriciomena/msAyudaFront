@@ -158,11 +158,12 @@ function NuevoDocumento(props) {
 
     return (   <>
                 {/* cabecera */}
-                {console.log('tipo',tipo)}
+                
                 {tipo==='INT'?<h2>Nuevo Documento</h2>:tipo==='EVE'?<h2>Nuevo Evento</h2>:<h2>Nueva pregunta frecuente</h2>}
                 { (archivo.length === 0 )&&
                     <div id='nuevoDocumento' >
-                        {errores && errores.msg && <p>{errores.msg}</p>}
+                        {errores && errores.msg && <p>{errores.msg} </p>}
+                        
                         
                         <form encType="multipart/form-data" method="post" onSubmit={(e)=>{subir(e)}}  name="uploadArc">
                             <div>

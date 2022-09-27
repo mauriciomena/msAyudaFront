@@ -7,13 +7,17 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.documentos .buscar a{
+ width: 100%;
+ text-align: center;
+}
 .documentos .card{
     background-color: #ffffff;
-    box-shadow: 10px 5px 5px #d4d6d9;
+    box-shadow: 10px 5px 5px #9c9b9b;
     align-self: start;
     padding: 10px;
-    width: 270px;
-    height: 200px;
+    width: 80%;
+    height: 70px;
     font-size: small;
     text-align: left;
     margin: 3px;
@@ -21,6 +25,28 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.documentos .cardAdd{
+     background-color: #c2bcbc; 
+    border-left:6px solid #1e81b0 ;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    align-self: start;
+    padding: 10px;
+    width: 270px;
+    height: 150x;
+    font-size: small;
+    text-align: left;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.5s;
+}
+
+.documentos .cardAdd:hover {
+    background-color: #ffffff; 
+    color: #ff6600 ; 
+}
+
 .documentos .card h3{
     font-size:large;
     text-decoration: none;
@@ -31,11 +57,11 @@
 .documentos .card .titulo h3{
     margin: auto;
 }
-.documentos .card .titulo{
-    background-color: #fa8500;
+/* .documentos .cardAdd .titulo{
+    background-color: #ff6600;
     padding: 20px;
     color: white;
-}
+} */
 
 .documentos .buscar {
     padding: 5%;
@@ -48,4 +74,5 @@
     box-shadow: 10px 5px 5px #a8a8a8;
     border: none;
     font-size: 15px;
+    margin-top: 5%;
 }

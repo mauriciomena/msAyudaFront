@@ -85,42 +85,15 @@ function Cards(props) {
 
     return  (   <>
                 <h2>Ayuda de la opción {infoOpcion.descripcion}</h2>
-                <h3>Eventos:</h3>
-                {eventos.length !== 0 && <p>Total de Eventos Encontrados {eventos.length}</p>}
-                <div className='cards'>
-                    {eventos.length === 0 && <p>Cargando tarjetas...</p>}                    
-                    {eventos.length !== 0 && eventos.map(evento=>{                            
-                        let tarjeta = {
-                            id:            evento.msayuda[0].id, 
-                            denominacion : evento.msayuda[0].denominacion,
-                            destalle : evento.msayuda[0].destalle,
-                            palabra_clave : evento.msayuda[0].palabra_clave,
-                            fecha_actualizacion: evento.msayuda[0].fecha_actualizacion,
-                            etiquetas: evento.msayuda[0].etiquetas,
-                            tipo: 'EVE',
-                        };                
-                    
-                    return <Card key={tarjeta.denominacion} evento={{...tarjeta}}/>
-                    })}
-                </div> 
-                <h3>Documentos:</h3>
-                <div className='cards'>
-                    {documentos.length !== 0 && documentos.map(documento => {
-                        let tarjeta = {
-                            id: documento.msayuda[0].id,
-                            denominacion: documento.msayuda[0].denominacion,
-                            destalle: documento.msayuda[0].destalle,
-                            palabra_clave: documento.msayuda[0].palabra_clave,
-                            fecha_actualizacion: documento.msayuda[0].fecha_actualizacion,
-                            etiquetas: documento.msayuda[0].etiquetas,
-                            tipo:'INT'
-                        };
 
-                        return <Card key={tarjeta.denominacion} evento={{ ...tarjeta }} />
-                    })}
+                <div className='minCards'>
+                    <a href='#eve'> <div className='minCard'> <i class='fa-solid fa-gears'></i> {eventos.length} Eventos</div> </a>
+                    <a href='#faq'><div className='minCard'> <i class='fa-solid fa-clipboard-question'></i> {faqs.length} FAQ</div> </a>
+                    <a href='#doc'><div className='minCard'> <i class='fa-solid fa-file'></i>{documentos.length} Documentos</div></a>
                 </div>
-                <h3>Faqs:</h3>
-                <div className='cards'>
+                                       
+               
+                <div id='faq' className='cards'>
                     {faqs.length !== 0 && faqs.map(faq => {
                         let tarjeta = {
                             id: faq.msayuda[0].id,
@@ -135,6 +108,39 @@ function Cards(props) {
                         return <Card key={tarjeta.denominacion} evento={{ ...tarjeta }} />
                     })}
                 </div>
+                <div id='eve' className='cards'>
+                    {eventos.length === 0 && <p>Cargando tarjetas...</p>}                    
+                    {eventos.length !== 0 && eventos.map(evento=>{                            
+                        let tarjeta = {
+                            id:            evento.msayuda[0].id, 
+                            denominacion : evento.msayuda[0].denominacion,
+                            destalle : evento.msayuda[0].destalle,
+                            palabra_clave : evento.msayuda[0].palabra_clave,
+                            fecha_actualizacion: evento.msayuda[0].fecha_actualizacion,
+                            etiquetas: evento.msayuda[0].etiquetas,
+                            tipo: 'EVE',
+                        };                
+                    
+                    return <Card key={tarjeta.denominacion} evento={{...tarjeta}}/>
+                    })}
+                </div>    
+
+                <div id='doc' className='cards'>
+                    {documentos.length !== 0 && documentos.map(documento => {
+                        let tarjeta = {
+                            id: documento.msayuda[0].id,
+                            denominacion: documento.msayuda[0].denominacion,
+                            destalle: documento.msayuda[0].destalle,
+                            palabra_clave: documento.msayuda[0].palabra_clave,
+                            fecha_actualizacion: documento.msayuda[0].fecha_actualizacion,
+                            etiquetas: documento.msayuda[0].etiquetas,
+                            tipo:'INT'
+                        };
+
+                        return <Card key={tarjeta.denominacion} evento={{ ...tarjeta }} />
+                    })}
+                </div>
+                
             </>
         )
 }

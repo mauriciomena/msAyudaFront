@@ -1,11 +1,28 @@
-.longcard{
-    background-color: #ffebd4;
-    box-shadow: 10px 5px 5px #d4d6d9;
-    align-self: center;
+.longCard{
+
+    background-color: #ffffff;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    border-radius: 0px;
+    align-self: start;
     padding: 15px;
-    width: 80%;
-    height: 30px;
+    width: 100%;
+    height: 50px;
     font-size: small;
-    text-align: center;
-    margin: 5px;
+    text-align: left;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left:6px solid #ff6600  ;
+}
+.longCard h3{
+    font-size: medium;
+    text-decoration: none;
+    margin: auto;
+}
+.longCard p{
+    margin: auto;
+}
+.longCard .edit{
+   text-align: right;
 }

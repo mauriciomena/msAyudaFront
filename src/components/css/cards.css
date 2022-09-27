@@ -4,7 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     box-sizing: border-box;
-    margin: 3%;
+    margin: 1%;
 }
 
 .cards a{
@@ -12,4 +12,33 @@
     font-style: normal;
     color: black;
   }
+
+  .minCards{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    padding: 3%;
+    text-align: left;
+    font-weight:bold ;
+ 
+  }
+
+  .minCards .minCard{
+    width: 200px;
+    padding: 15px;
+    margin: 3px;
+     background-color: #ffff;  
+    border-left:6px solid #1e81b0 ;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    transition: 0.5s;
+  }
+
+  .minCards .minCard:hover {
+    background-color: #ffffff; 
+    color: #ff6600 ; 
+}
 
