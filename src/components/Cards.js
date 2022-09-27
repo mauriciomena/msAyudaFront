@@ -108,7 +108,6 @@ function Cards(props) {
                     })}
                 </div>
                 <div  id='eve' className='cards'>
-                    {eventos.length === 0 && <p>Cargando tarjetas...</p>}                    
                     {eventos.length !== 0 && eventos.map(evento=>{                            
                         let tarjeta = {
                             id:            evento.msayuda[0].id, 
