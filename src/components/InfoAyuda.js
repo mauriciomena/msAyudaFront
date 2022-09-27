@@ -15,7 +15,7 @@ function InfoAyuda() {
     
     useEffect(() => {
 
-        console.log('monta');
+        
         window.scroll({
             top: 0,
             left: 0,
@@ -34,7 +34,7 @@ function InfoAyuda() {
     }, [])
 
     useEffect(() => {
-        console.log('actualiza');
+       
         window.scroll({
             top: 0,
             left: 0,

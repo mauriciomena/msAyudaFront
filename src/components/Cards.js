@@ -43,9 +43,22 @@ function Cards(props) {
                 .catch(error => console.log(error));
             }
         }
+        
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
     }, [])
 
     useEffect(() => {
+        
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+        
         if (data && data.length > 0 ){
 
             let eveloc = data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
