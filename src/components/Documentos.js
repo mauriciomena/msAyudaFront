@@ -46,7 +46,7 @@ function Documentos() {
             } )
             .then(result => result.json())
             .then(response => {  
-                // console.log(response);       
+                 console.log(response);
                  let eveloc = response.data.filter(opcion => opcion.tipo === 'EVE')
                  SetEventos(eveloc)
                 let docloc = response.data.filter(opcion => opcion.tipo === 'INT')                    

@@ -16,11 +16,12 @@ function Card(props) {
                 <Link to={'/menu/evento/'+tarjeta.id}>
                     <div className='longCard'>
                             
-                        <div>
-                            <h3><i class={tarjeta.tipo==='EVE'?'fa-solid fa-gears':tarjeta.tipo==='FAQ'?'fa-solid fa-clipboard-question':'fa-solid fa-file'}></i>
-                                     {tarjeta.denominacion}                            
-                            </h3>
-                        </div>
+                        
+                        <p className='titulo' ><i class={tarjeta.tipo==='EVE'?'fa-solid fa-gears':tarjeta.tipo==='FAQ'?'fa-solid fa-clipboard-question':'fa-solid fa-file'}></i>
+                                    {tarjeta.denominacion}                            
+                        </p>
+                        <p className='detalle'>    {tarjeta.destalle}</p>
+                    
                         {/* <div>
                             <p>Detalle: {tarjeta.destalle}</p>
                             <p>Palabras Clave: {tarjeta.palabra_clave}</p>
