@@ -43,3 +43,18 @@
     margin: 0%;
     color: #ff6600;
 }
+
+.InfoAyuda .valorPosible{
+    display: flex;
+    background-color: #ffff;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 3px;
+    border-left:6px solid #8e9294 ;
+    box-shadow: 10px 5px 5px #9c9b9b;
+}
+
+.InfoAyuda .valorPosible .imagen{
+    text-align: center;
+}

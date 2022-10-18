@@ -60,6 +60,19 @@ function InfoAyuda() {
         SetidValor(id)
     }
 
+    const copiarAlPortapapeles = (tarjeta)=> {
+        let texto  = `DELETE FROM EVENTOS WHERE  libreria = 'ayud' AND  evento = '${tarjeta.evento}';`+
+            `INSERT INTO  EVENTOS ( libreria , evento , descripcion , objeto ,tipo_empresa) VALUES `+
+            `( 'ayud' ,'${tarjeta.evento}','${tarjeta.denominacion}','${tarjeta.valor}','GENE');`
+        let aux = document.createElement("input");
+        aux.setAttribute("value", texto);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+        alert('Evento copiado')
+      }
+
     return  (   <>
                 <div className='InfoAyuda'>
                     {ayuda.length === 0 && <p>Cargando informacion...</p>}
@@ -72,34 +85,33 @@ function InfoAyuda() {
                     </div>
                     {valores.length !== 0 && 
                      <div className='valoresposibles'>
-                        <table>
-                            <tr>
-                                <th>Valor</th>
-                                <th>Descripcion</th>
-                                <th>Documento</th>
-                                <th>Imagen</th>
-                            </tr>
-                            { valores.map(evento=>{
-                                console.log(evento);
-                                let tarjeta = {
-                                    id:            evento.id, 
-                                    denominacion : evento.denominacion_valor,
-                                    valor : evento.valor,
-                                    imagen: evento.imgurl
-                                    };                
-                                
-                                return( <>
-                                    <tr>
-                                        <td>{tarjeta.valor}</td>
-                                        <td>{tarjeta.denominacion}</td>
-                                        <td className='col-3'><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td onClick={()=>{ handleClick(tarjeta.id) }} className='col-4'><i class="fa-solid fa-circle-plus"></i></td>
-                                    </tr>
-                                    {/* { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) } */}
+                        <h3>Valores Posibles:</h3>
+                        { valores.map(evento=>{
+                            console.log(evento);
+                            let tarjeta = {
+                                evento :       ayuda.denominacion,
+                                id:            evento.id, 
+                                denominacion : evento.denominacion_valor,
+                                valor : evento.valor,
+                                imagen: evento.imgurl
+                                };                
+                            
+                            return( <div className='valorPosible'>
+
+                                    <p onClick={()=>copiarAlPortapapeles( tarjeta)}>
+                                        <i class="fa-regular fa-copy"></i> 
+                                    </p>
+                                    <p>  Indica que: {tarjeta.denominacion}  cuando el objeto está en: {tarjeta.valor} </p>
+                                    <div className='imagen' >
+                                        { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) }
+                                    </div>
+                                    <div>
+                                        {(tarjeta.imagen.length === 0) && (<p onClick={() => { handleClick(tarjeta.id) }} className='col-4'> <i class="fa-solid fa-circle-plus"></i> Agregar imagen </p>)}                                    
+                                    </div>
                                     
-                                </>)
-                            })}
-                        </table>
+
+                            </div>)
+                        })}
                         { visible &&  <UploadFiles id={idValor}/>}                        
                     </div>
                     }
