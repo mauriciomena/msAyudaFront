@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import dataserver from '../dataserver';
+import tareasServer from '../tareasServer';
 import '../components/css/sprint.css'
 
 function Sprint() {
@@ -16,7 +16,7 @@ function Sprint() {
 
     useEffect(()=>{
         console.log(idSprint.id);
-        const endpoint = dataserver+'/tareas/sprint/'+idSprint.id
+        const endpoint = tareasServer+'/tareas/sprint/'+idSprint.id
         console.log(endpoint);
         fetch(endpoint)
         .then(response => response.json())
