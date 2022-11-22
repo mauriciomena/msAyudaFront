@@ -216,9 +216,9 @@ function NuevoDocumento(props) {
                                     name="documento" 
                                     accept="*.pdf"/>
                             {errores && errores.documento && <p>{errores.msg}</p>}
-                            <div>
+                            <div className='botones' >
                                 <input className='btn' type="submit" value="Enviar" />
-                                <input className='btn' type="reset" value="limpiar" />                        
+                                                        
                             </div>
                         </form>
                     </div> } 

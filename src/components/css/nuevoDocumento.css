@@ -1,28 +1,37 @@
 #nuevoDocumento {
 
-    background-color: #ffff;
-    border-left:6px solid #fc9357 ;
+    background-color: #c2bcbc; 
+    border-left:6px solid #1e81b0 ;
+    box-shadow: 10px 5px 5px #9c9b9b;
     display: flex;
     flex-direction: row;
     margin: auto;
-    margin-top: 100px;
-    width: 70%;
-    height: 50vh;
+    width: 40%;
+    height: 70vh;
     align-items: center;
     text-align: left;
-
 }
 
 #nuevoDocumento form{
     margin: auto;
-    width: 80%;
-    padding: 20px;
-
+    width: 90%;
 }
 #nuevoDocumento .inpt{
-    padding: 5px;
+    padding: 10px;
     width: 100%;
+    border-radius: 3px;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    border: 0;
 
+}
+
+#nuevoDocumento .botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
 }
 
 #nuevoDocumento .btn{

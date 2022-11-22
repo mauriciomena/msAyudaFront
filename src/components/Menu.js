@@ -60,7 +60,7 @@ function Menu(){
 
     return (
         <>
-            { menu.length === 0 && <p>Cargando Menu...</p>  }
+            {/* { menu.length === 0 && <p>Cargando Menu...</p>  } */}
             {
                 <ul className='Menu'>
                     {madres.map((op, index) => {

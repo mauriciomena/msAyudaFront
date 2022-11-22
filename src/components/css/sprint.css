@@ -1,0 +1,61 @@
+.sprint{
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-between;
+    margin: auto;
+}
+
+.sprint .card{
+    background-color: #ffffff;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    width:auto;
+    padding: 10px;
+    height: 80px;
+    font-size: small;
+    text-align: left;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 3px;
+}
+.sprint .card h3{
+    font-size: medium;
+    text-decoration: none;
+}
+.sprint .card p{
+    margin: auto;
+}
+.sprint .card h3{
+    margin: auto;
+}
+.sprint .backlog{
+    width: 20%;
+    flex: 1 1 auto;
+}
+.sprint .proceso{
+    width: 20%;
+    flex: 1 1 auto;
+}
+.sprint .testing{
+    width: 20%;
+    flex: 1 1 auto;
+}
+.sprint .testingok{
+    width: 20%;
+    flex: 1 1 auto;
+}
+.sprint .hecho{
+    width: 20%;
+    flex: 1 1 auto;
+}
+
+.sprint .backlog .card {border-left:6px solid #ff6600  ;}
+.sprint .proceso .card {border-left:6px solid #00bbff  ;}
+.sprint .testing .card {border-left:6px solid #f48181  ;}
+.sprint .testingok .card {border-left:6px solid #ffe600  ;}
+.sprint .hecho .card {border-left:6px solid #0b9e00  ;}
