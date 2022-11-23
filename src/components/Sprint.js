@@ -41,31 +41,31 @@ function Sprint() {
                     <div className='backlog'>
                         <h2>Backlog {meta.enBacklog}</h2>
                         { backlog.length > 0 && backlog.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} </p> 
+                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
                         })}
                     </div>                
                     <div className='proceso'>
                         <h2>En Proceso {meta.enProceso}</h2>
                         { proceso.length > 0 && proceso.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} </p> 
+                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
                         })}
                     </div>                
                     <div className='testing'>
                         <h2>En Testing {meta.enTesting}</h2>
                         { testing.length > 0 && testing.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} </p> 
+                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
                         })}
                     </div>                
                     <div className='testingok'>
                         <h2>Testeado Ok {meta.enTestingOk}</h2>
                         { testingOk.length > 0 && testingOk.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} </p> 
+                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
                         })}
                     </div>                    
                     <div className='hecho'>
                         <h2>Hecho {meta.hecho} </h2>
                         { hecho.length > 0 && hecho.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} </p> 
+                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
                         })}
                     </div>                                        
                 </div>

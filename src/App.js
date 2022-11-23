@@ -17,9 +17,9 @@ function App() {
     <>
       <NavBar/>
       <div className='App'>
-        <div className='menu'>
-          <Menu/> 
-        </div>  
+          <div className='menu'>
+            <Menu/> 
+          </div>  
           <div className='contenedor'>
             <Routes>
               <Route exact path="/" element={<Documentos/>} ></Route>
@@ -32,7 +32,7 @@ function App() {
               <Route exact path="/evento/edit/:id" element={<EditEvento/>} ></Route>
               <Route exact path="/sprint/:id" element={<Sprint />} ></Route>
                             
-            </Routes>
+            </Routes>    
           </div>
       </div>
     </>
