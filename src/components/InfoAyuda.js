@@ -108,11 +108,9 @@ function InfoAyuda() {
                                     <div>
                                         {(tarjeta.imagen.length === 0) && (<p onClick={() => { handleClick(tarjeta.id) }} className='col-4'> <i class="fa-solid fa-circle-plus"></i> Agregar imagen </p>)}                                    
                                     </div>
-                                    
-
                             </div>)
                         })}
-                        { visible &&  <UploadFiles id={idValor}/>}                        
+                        { visible &&  <UploadFiles id={idValor}/>}              
                     </div>
                     }
                     <h3>Opciones relacionadas:</h3>

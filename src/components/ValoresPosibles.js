@@ -39,6 +39,7 @@ function ValoresPosibles() {
     const handleClick = (id) =>{
         !visible? SetVisible(true): SetVisible(false)
         SetidValor(id)
+        console.log(visible);
     }
 
     return  (   <>
@@ -57,15 +58,14 @@ function ValoresPosibles() {
                                 <th>Documento</th>
                                 <th>Imagen</th>
                             </tr>
+                            { visible && <UploadFiles id={idValor}/> }                        
                             {valores.length !== 0 && valores.map(evento=>{
-                                console.log(evento);
                                 let tarjeta = {
                                     id:            evento.id, 
                                     denominacion : evento.denominacion_valor,
                                     valor : evento.valor,
                                     imagen: evento.imgurl
                                     };                
-                                console.log(tarjeta.imagen);
                                 return( <>
                                     <tr>
                                         <td>{tarjeta.valor}</td>
@@ -75,11 +75,10 @@ function ValoresPosibles() {
                                         <td onClick={()=>{ handleClick(tarjeta.id) }} className='col-4'><i class="fa-solid fa-circle-plus"></i></td>
                                     </tr>
                                     { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) }
-                                    
                                 </>)
                             })}
                         </table>
-                        { visible &&  <UploadFiles id={idValor}/>}                        
+                        
                     </div>
                     
                 </div> 

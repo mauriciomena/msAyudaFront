@@ -35,6 +35,7 @@ function UploadFiles(props) {
     return (   <>
                  <div className='uploadFiles' id="subir">
                     {errores && errores.msg && <p>{errores.msg}</p>}
+                    {console.log(props.id)}
                     
                     <form encType="multipart/form-data" method="post" onSubmit={(e)=>{subir(e)}}  name="uploadArc">
                         <label for="file">Seleccione el archivo</label>
