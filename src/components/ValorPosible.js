@@ -39,7 +39,7 @@ function ValorPosible(props) {
         } )
         .then(result => result.json())
         .then(response => {       
-            console.log(response );  
+          console.log(response );  
           setErrores(response.errors)
         })
         .catch(console.warn)  
@@ -74,8 +74,7 @@ function ValorPosible(props) {
     return ( <>
         <div id='valorposible' name="valorPosible" >
             <form encType="multipart/form-data" method="post" onSubmit={e => enviar(e)}>
-                {console.log('errores',errores)}
-
+                
                 { errores && errores.msg && errores.msg.length > 0 && <p key={`msj${data.id}`} className='alerta'>{errores.msg} </p>}  
                 {/* { errores && errores.msg && <p> {errores.msg} </p>}   */}
                 
