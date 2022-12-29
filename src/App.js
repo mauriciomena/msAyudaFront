@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 import Documentos from './components/Documentos';
 import NuevoDocumento from './components/NuevoDocumento';
 import Sprint from './components/Sprint';
+import EditNuevoDocumento from './components/EditNuevoDocumento';
 
 
 
@@ -25,6 +26,7 @@ function App() {
               <Route exact path="/" element={<Documentos/>} ></Route>
               <Route exact path="/documentos" element={<Documentos/>} ></Route>
               <Route exact path="/nuevodocumento"   element={ <NuevoDocumento id='INT'/>} ></Route>              
+              <Route exact path="/editdocumento/:id"   element={ <EditNuevoDocumento/>} ></Route>              
               <Route exact path="/nuevafaq"  element={ <NuevoDocumento id='FAQ' />} ></Route>              
               <Route exact path="/nuevoevento"  element={ <NuevoDocumento id='EVE' />} ></Route>                            
               <Route exact path="/menu/:id" element={<Cards/>} ></Route>

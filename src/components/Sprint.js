@@ -40,32 +40,34 @@ function Sprint() {
                 <div className='sprint'>
                     <div className='backlog'>
                         <h2>Backlog {meta.enBacklog}</h2>
+                        {console.log('backlog',backlog)}
                         { backlog.length > 0 && backlog.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
+                                
                         })}
                     </div>                
                     <div className='proceso'>
                         <h2>En Proceso {meta.enProceso}</h2>
                         { proceso.length > 0 && proceso.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
                         })}
                     </div>                
                     <div className='testing'>
                         <h2>En Testing {meta.enTesting}</h2>
                         { testing.length > 0 && testing.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
                         })}
                     </div>                
                     <div className='testingok'>
                         <h2>Testeado Ok {meta.enTestingOk}</h2>
                         { testingOk.length > 0 && testingOk.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
                         })}
                     </div>                    
                     <div className='hecho'>
                         <h2>Hecho {meta.hecho} </h2>
                         { hecho.length > 0 && hecho.map(incidente=>{
-                            return <p className='card'> {incidente.numero_tarea} { incidente.asunto} ( Dificultad: {incidente.dificultad} )  </p> 
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
                         })}
                     </div>                                        
                 </div>

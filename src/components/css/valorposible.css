@@ -1,0 +1,58 @@
+#valorposible {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: auto;
+    justify-content: center;
+    align-items:flex-s;
+    padding: 5px;
+    background-color: #9c9b9b;
+    margin: 10px;
+    border-radius: 3px;
+}
+#valorposible form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: auto;
+    justify-content: center;
+    align-items:flex-s;
+}
+
+#valorposible #btn{
+    width: 80px;
+    height: 30px;
+}
+
+#valorposible .btn{
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+    width: 80px;
+    height: 30px;
+    margin: 2px;
+}
+
+
+#valorposible img{
+    margin: auto;
+}
+
+#valorposible input{
+    margin: 5px;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    width: 70% ;
+}
+#valorposible .alerta{
+    color: red;
+    background-color: #fca495;
+    width: 100%;
+    border: 1px solid red;
+    border-radius: 3px;
+    text-align: center;
+}
+

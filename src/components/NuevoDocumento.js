@@ -1,4 +1,5 @@
 import {useState, useRef, useEffect} from 'react';
+import { Navigate } from "react-router-dom";
 import dataserver from '../dataserver';
 import './css/AddOpcion.css'
 import './css/nuevoDocumento.css'
@@ -7,7 +8,8 @@ import './css/nuevoDocumento.css'
 const server = dataserver;
 function NuevoDocumento(props) {
     // const [ id, setId] = useState(0);
-    const [ errores, setErrores] = useState([]);
+    const [ errores, setErrores] = useState({});
+    const [ totalErrores, setTotalErrores] = useState([]);    
     const [ archivo, setArchivo] = useState('');   
     const [menu,setMenu] = useState([])
     const [data,setData] = useState([])
@@ -22,7 +24,6 @@ function NuevoDocumento(props) {
     const etiquetas     = useRef()
 
     useEffect(() => {
-        
         setTipo(props.id)
         fetch(server + '/menu/buscomenu')
             .then(response => response.json())
@@ -82,32 +83,75 @@ function NuevoDocumento(props) {
 
     const subir = (e)=>{
         e.preventDefault();
-        const formData = new FormData();  
         
-        formData.append("documento",documento.current.files[0])
-        formData.append("titulo",titulo.current.value)
-        formData.append("descripcion",descripcion.current.value)
-        formData.append("etiquetas",etiquetas.current.value)
-        formData.append("tipo",tipo)
+        console.log(errores);
+        console.log('Object.keys(errores).length',Object.keys(errores).length);
+
+        if (Object.keys(errores).length){
+        } else{
+            const formData = new FormData();  
         
-        fetch(server+"/menu/adddocumentos/",
-        {
-            method: 'POST',
-            headers: {
-                'access-token': "token si se usa"
-            },
-            body: formData
-        } )
-        .then(result => result.json())
-        .then(response => {         
-           
-          setErrores(response.errors)
-          response.errors && response.errors.documento?  setArchivo(response.errors.documento): setArchivo('')
-        })
-        .catch(console.warn)  
+            if( tipo != 'EVE'){
+                formData.append("documento",documento.current.files[0])
+            }
+            formData.append("titulo",titulo.current.value)
+            formData.append("descripcion",descripcion.current.value)
+            formData.append("etiquetas",etiquetas.current.value)
+            formData.append("tipo",tipo)
+
+            const endpoint = tipo !== 'EVE'? server+"/menu/adddocumentos/" : server+"/menu/addevento/" 
+            
+            if (tipo !== 'EVE') {
+                fetch(endpoint,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'access-token': "token si se usa"
+                        },
+                        body: formData
+                    } )
+                    .then(result => result.json())
+                    .then(response => {         
+                       console.log('response',response);
+                      setErrores(response.errors)
+                      response.errors && response.errors.documento?  setArchivo(response.errors.documento): setArchivo('')
+                    })
+                    .catch(console.warn)  
+            } else{
+                fetch(endpoint,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'access-token': "token si se usa",
+                            'Content-Type':'application/json'
+                        },
+                        body: JSON.stringify(
+                            { 'titulo' : titulo.current.value,
+                            'descripcion': descripcion.current.value,
+                            'etiquetas': etiquetas.current.value,
+                            'tipo': tipo
+                        })
+                    } )
+                    .then(result => result.json())
+                    .then(response => {         
+                        
+                      setErrores(response.errors)
+                      console.log(response.errors);
+
+                      response.errors && response.errors.documento?  setArchivo(response.errors.documento): setArchivo('')
+                      
+                    })
+                    .catch(console.warn)  
+            }
+            
+        }
     };
 
     const validaTitulo = (e)=>{
+        let err  = errores
+        delete err.titulo
+        setErrores(err)
+
         const valor = e.target.value        
         if (valor===null || valor===''){
             setErrores({
@@ -116,13 +160,18 @@ function NuevoDocumento(props) {
                     msg: 'El título no puede quedar vacio '
                 }
             })
-        } else {
-            let err  = errores
-            delete err.titulo
-            setErrores(err)
-        }
-        
+            setTotalErrores( totalErrores ++ )
+        } else
+            if (tipo === 'EVE' && valor.length > 16){
+                setErrores({
+                    ...errores,
+                    titulo: {
+                        msg: 'El evento no puede contener más de 16 caracteres '
+                    }
+                })
+            }
     };
+    
     const validaDescripcion = (e)=>{
         const valor = e.target.value        
         if (valor===null || valor===''){
@@ -159,37 +208,43 @@ function NuevoDocumento(props) {
     return (   <>
                 {/* cabecera */}
                 
-                {tipo==='INT'?<h2>Nuevo Documento</h2>:tipo==='EVE'?<h2>Nuevo Evento</h2>:<h2>Nueva pregunta frecuente</h2>}
-                { (archivo.length === 0 )&&
+                    {tipo === 'INT' ? <h2>Nuevo Documento</h2> : tipo === 'EVE' ? <h2>Nuevo Evento</h2> : <h2>Nueva pregunta frecuente</h2>}
+                    {console.log('errores', errores )}
+                    { errores && errores.id && errores.id > 0 &&  <Navigate to={`/editdocumento/${errores.id}`} replace={true} /> }
                     <div id='nuevoDocumento' >
-                        {errores && errores.msg && <p>{errores.msg} </p>}
-                        
-                        
-                        <form encType="multipart/form-data" method="post" onSubmit={(e)=>{subir(e)}}  name="uploadArc">
+                        {
+                            Object.keys(errores).length > 0 &&
+                            <div className='msgerror'>
+                                {errores && errores.documento && <p>{errores.documento.msg} </p>}
+
+                            </div>
+                        }
+
+                        <form encType="multipart/form-data" method="post" onSubmit={(e) => { subir(e) }} name="uploadArc">
                             <div>
                                 <label>
-                                    {tipo==='INT'? 'Titulo del Documento' :tipo==='EVE'?'Nombre del Evento:':'Pregunta:'}
+                                    {tipo === 'INT' ? 'Titulo del Documento' : tipo === 'EVE' ? 'Nombre del Evento:' : 'Pregunta:'}
                                     <input ref={titulo}
-                                            onBlur={(e)=>validaTitulo(e)}
-                                            className='inpt'
-                                            type='text' 
-                                            id='titulo'
-                                            placeholder=''
-                                            maxlength="50" />
+                                        onBlur={(e) => validaTitulo(e)}
+                                        className='inpt'
+                                        type='text'
+                                        id='titulo'
+                                        placeholder=''
+                                        maxlength="50" />
                                 </label>
                                 {errores && errores.titulo && <p>{errores.titulo.msg}</p>}
                             </div>
-                            <div>   
+                            <div>
                                 <label>
                                     Informacion adicional:
-                                    <textarea  ref={descripcion}
-                                            onBlur={(e)=>validaDescripcion(e)}
-                                            className='inpt'
-                                            type='text' 
-                                            id='descripcion'
-                                            placeholder='1000 caracteres para escribir lo que necesario'
-                                            maxlength="1000">
-                                                </textarea>
+                                    <textarea ref={descripcion}
+                                        onBlur={(e) => validaDescripcion(e)}
+                                        className='inpt'
+                                        type='text'
+                                        id='descripcion'
+                                        placeholder='1000 caracteres para escribir lo que necesario'
+                                        maxlength="1000">
+                                    </textarea>
                                 </label>
                                 {errores && errores.descripcion && <p>{errores.descripcion.msg}</p>}
                             </div>
@@ -197,65 +252,40 @@ function NuevoDocumento(props) {
                                 <label>
                                     Etiquetas:
                                     <input ref={etiquetas}
-                                            onBlur={(e)=>validaEtiqueta(e)}
-                                            className='inpt'
-                                            type='text' 
-                                            id='etiquetas'
-                                            placeholder='#etiqueta'
-                                            maxlength="50" />
+                                        onBlur={(e) => validaEtiqueta(e)}
+                                        className='inpt'
+                                        type='text'
+                                        id='etiquetas'
+                                        placeholder='#etiqueta'
+                                        maxlength="50" />
                                 </label>
                                 {errores && errores.etiqueta && <p>{errores.etiqueta.msg}</p>}
                             </div>
+                            {tipo != 'EVE' &&
+                                <div>
+                                    <label for="file">Seleccione el archivo</label>
+                                    <input className='file'
+                                        ref={documento}
+                                        type="file"
+                                        id="documento"
+                                        required
+                                        name="documento"
+                                        accept="*.pdf" />
+                                    {errores && errores.documento && <p>{errores.msg}</p>}
+                                </div>
+                            }
 
-                            <label for="file">Seleccione el archivo</label>
-                            <input className='file' 
-                                    ref={documento} 
-                                    type="file"
-                                    id="documento" 
-                                    required
-                                    name="documento" 
-                                    accept="*.pdf"/>
-                            {errores && errores.documento && <p>{errores.msg}</p>}
                             <div className='botones' >
                                 <input className='btn' type="submit" value="Enviar" />
-                                                        
+
                             </div>
                         </form>
-                    </div> } 
+                    </div>
                     {/* opciones de menú */}
-                    {archivo!== undefined && archivo!== ''&& archivo!== null && 
-                    <div id='AddOpcion'>
-                        <div>                        
-                            <a href={archivo.archivo}><h2> <i class="fa-solid fa-file-pdf"></i>  {archivo.denominacion} </h2></a>
-                            <h3>{archivo.destalle}</h3>
-                            <h4>{archivo.etiquetas}</h4>   
-                        </div>
-                        { lista.map((opcion,index) => <p className='add' key={index}>{opcion.opcion}</p> )} 
-                        
-                        <div>
 
-                            <form encType="multipart/form-data" method="get" name="busopcion">
-                                <label>Buscar Opción:</label>
-                                <input type="text"
-                                    placeholder='Factura especial'
-                                    onChange={(e) => { buscar(e) }}
-                                />
-                            </form>
-
-
-                            {data.map((opcion, index) =>
-                            <form encType="multipart/form-data" method="post" name="vinculo" onSubmit={e=>enviar(e)}>
-                                <input type="hidden" id={opcion.id+''}  name={opcion.id+''} value={opcion.id+''}/>
-                                <input type="hidden" name='idayuda' value={archivo.id+''}/>
-                                <input type="hidden" name='opcion' value={opcion.opcion}/>
-                                <p key={index}>{opcion.opcion} <input id='btn' type="submit" value="agregar" /> </p>
-                            </form> )}
-                            {/* onClick={() => { enviar(opcion.id, opcion.opcion) }}  */}
-                        </div>
-                    </div>}
                 </>
             
             );
-}
+        };
 
 export default NuevoDocumento;

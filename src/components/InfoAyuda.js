@@ -1,6 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
 import dataserver from '../dataserver';
 import './css/InfoAyuda.css'
 import UploadFiles from './UploadFiles';
@@ -13,9 +14,7 @@ function InfoAyuda() {
     const [ idValor,SetidValor ]= useState(0)        
     const [ visible, SetVisible] = useState(false)
     
-    useEffect(() => {
-
-        
+    useEffect(() => {        
         window.scroll({
             top: 0,
             left: 0,
@@ -78,11 +77,13 @@ function InfoAyuda() {
                     {ayuda.length === 0 && <p>Cargando informacion...</p>}
                     <div>
                         <h2>{ayuda.denominacion} </h2>
+                        <Link to={`/editdocumento/${idOpcion.id}`} > Editar <i class="fa-sharp fa-solid fa-file-pen"></i>  </Link>
                         <h3>Detalle:</h3>
                         <p>{ayuda.destalle}</p>
                         <h3>Etiquetas:</h3>
                         <p>{ayuda.etiquetas}</p>
                     </div>
+                    
                     {valores.length !== 0 && 
                      <div className='valoresposibles'>
                         <h3>Valores Posibles:</h3>
@@ -116,8 +117,9 @@ function InfoAyuda() {
                     <h3>Opciones relacionadas:</h3>
                     {ayuda.opciones && ayuda.opciones.length > 0 && ayuda.opciones.map((   opcion,index) => {return <p key={index}>{opcion.vw_menu.opcion}</p>})}
                     {ayuda.imgurl && <embed className='visor' src={ayuda.imgurl} type="application/pdf" /> }
+
                    
-                    
+
                 </div> 
             </>
         )
