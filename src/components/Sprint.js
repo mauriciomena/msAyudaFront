@@ -7,6 +7,7 @@ import '../components/css/sprint.css'
 function Sprint() {
     const [data , setData ] = useState([]);
     const [backlog , setBacklog ] = useState([]);
+    const [totPresupuestado , settotPresupuestado ] = useState(0);
     const [proceso , setProceso ] = useState([]);
     const [testing , setTesting ] = useState([]);
     const [testingOk , settestingOk ] = useState([]);
@@ -29,6 +30,8 @@ function Sprint() {
                 settestingOk(data.data.testingOk)
                 setHecho(data.data.hecho)
                 setMeta(data.meta)
+
+                console.log(data.meta);
             }
         ).catch(error=>{
             console.log(error)
@@ -37,11 +40,12 @@ function Sprint() {
     },[])    
 
     return (  <>
-                <div className='sprint'>
-                    <div className='backlog'>
+                <h1>Sprint {idSprint.id}</h1>
+                { meta.presupuesto && <h3> Presupuesto: {Math.round(meta.presupuesto / 60)} Hs. Consumido: {Math.round(meta.consumido/60)} Hs. </h3>}
+                <div key={'sp'} className='sprint'>                    
+                    <div key={'bkl'} className='backlog'>
                         <h2>Backlog {meta.enBacklog}</h2>
-                        {console.log('backlog',backlog)}
-                        { backlog.length > 0 && backlog.map(incidente=>{
+                        { backlog.length > 0 && backlog.map((incidente,index)=>{
                             return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
                                 
                         })}
