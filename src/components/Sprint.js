@@ -41,37 +41,38 @@ function Sprint() {
 
     return (  <>
                 <h1>Sprint {idSprint.id}</h1>
-                { meta.presupuesto && <h3> Presupuesto: {Math.round(meta.presupuesto / 60)} Hs. Consumido: {Math.round(meta.consumido/60)} Hs. </h3>}
+                { meta.presupuesto && <p> Presupuesto: {Math.round(meta.presupuesto / 60)} Hs. Consumido: {Math.round(meta.consumido/60)} Hs. = {Math.round(( meta.presupuesto - meta.consumido)  / 60)} Hs.</p>  } 
+                
                 <div key={'sp'} className='sprint'>                    
                     <div key={'bkl'} className='backlog'>
                         <h2>Backlog {meta.enBacklog}</h2>
                         { backlog.length > 0 && backlog.map((incidente,index)=>{
-                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> <p>Usado: {Math.round(incidente.total_consumido / 60)} Hs.</p></div>
                                 
                         })}
                     </div>                
                     <div className='proceso'>
                         <h2>En Proceso {meta.enProceso}</h2>
                         { proceso.length > 0 && proceso.map(incidente=>{
-                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> <p>Usado: {Math.round(incidente.total_consumido / 60)} Hs.</p></div>
                         })}
                     </div>                
                     <div className='testing'>
                         <h2>En Testing {meta.enTesting}</h2>
                         { testing.length > 0 && testing.map(incidente=>{
-                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> <p>Usado: {Math.round(incidente.total_consumido / 60)} Hs.</p></div>
                         })}
                     </div>                
                     <div className='testingok'>
                         <h2>Testeado Ok {meta.enTestingOk}</h2>
                         { testingOk.length > 0 && testingOk.map(incidente=>{
-                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> <p>Usado: {Math.round(incidente.total_consumido / 60)} Hs.</p></div>
                         })}
                     </div>                    
                     <div className='hecho'>
                         <h2>Hecho {meta.hecho} </h2>
                         { hecho.length > 0 && hecho.map(incidente=>{
-                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> </div>
+                            return <div className='card' ><p > {incidente.numero_tarea} </p> {incidente.asunto} <p>Dificultad: {incidente.dificultad}</p>  <p>Presupuesto: {Math.round(incidente.tiempo_presupuestado / 60)} Hs.</p> <p>Usado: {Math.round(incidente.total_consumido / 60)} Hs.</p></div>
                         })}
                     </div>                                        
                 </div>
