@@ -7,8 +7,57 @@
     align-items: center;
     flex-wrap: nowrap;
 }
+
+.navBar .logo{
+    flex: 0 1 auto;
+}
+
 .navBar img{
     margin: auto;
     width: 50px;
     height: 50px;
+    flex: 0 1 auto;
+}
+
+.navBar .navegacion{
+    width:100%;
+    flex: 1 1 auto;    
+}
+
+.navBar .navegacion ul{
+    list-style: none;
+    margin: 10px;
+    flex: 1 1 auto;    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.navBar .navegacion ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    
+    
+    width: 150px;
+    height: 40px;
+    text-align: center  ;
+    
+}
+
+.navBar .navegacion ul li{
+    
+    
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+.navBar .navegacion ul li:hover{
+    transform: rotateX(360deg);
+        -webkit-transform: rotateX(360deg);
+        -moz-transform: rotateX(360deg);
+    background-color: #fc8338;
 }

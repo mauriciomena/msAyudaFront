@@ -1,24 +1,26 @@
-.Menu {
-    background-color: #ffff;
-    box-shadow: 10px 5px 5px #d4d6d9;
-    align-self: start;
-    text-align: left;
-    
-   
+.Menu{
+    display: flex;
 }
-/* .Menu .visible{
+
+.Menu .invisible{
     display: none;
 }
-.Menu li:hover{
-    background-color:#fc9357;
-} */
 
-/* .Menu li {
-    transition: background-color .5s;
-    } */
-
+.tree {
+    background-color: #ffff;
+    align-self: start;
+    text-align: left;  
+    text-decoration: none;
+    width: 25%;
+}
 .Menu a {
     text-decoration: none;
     font-style: normal;
     color: black;
   }
+
+.Menu .tarjetas{
+    width: 75%;
+    margin-bottom: auto;
+    padding: 30px;
+}

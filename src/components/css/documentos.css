@@ -42,9 +42,16 @@
     transition: 0.5s;
 }
 
-.documentos .cardAdd:hover {
-    background-color: #ffffff; 
-    color: #ff6600 ; 
+.documentos .cardAdd{    
+    transition: .5s, color .10s;
+    -webkit-transition: .5s, color .10s;
+    -moz-transition: .5s, color .10s;
+}
+.documentos .cardAdd:hover{
+    box-shadow: 0 8px 8px 0 #a0a0a0,0 8px 8px 0 #a0a0a0;
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    -moz-transform:translate(0px,5px);
 }
 
 .documentos .card h3{

@@ -2,13 +2,15 @@ import './css/menu.css'
 import React from 'react';
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom' ;
-import Cards from './Cards';
+import Buscar from './Buscar';
 import dataserver from '../dataserver';
+// import SubMenu from './SubMenu';
+
 
 function Menu(){
     const [ menu, setMenu ]       = useState([])
     const [ madres, setMadres ]       = useState([])
-    const [ idMenu, setIdMenu ]       = useState([])   
+    
 
     const getHijas = (idOpcion) =>{
         let child = []
@@ -26,7 +28,6 @@ function Menu(){
         fetch(dataserver+'/menu')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             setMenu(data.data)
         })
         .catch(error => console.log(error));
@@ -57,58 +58,25 @@ function Menu(){
         setMadres(madres)
     }, [menu])
 
-    const handleclick = (opcion)=>{
-
-        console.log('opcion',opcion);
-        
-        // const elemento = document.getElementById(opcion.opcion)
-        // const hijas = getHijas(opcion.opcion)
-        // console.log('hijas',hijas);
-        // console.log('elemento',elemento);
-        // const  ul = document.createElement('ul') 
-        // const  li = document.createElement('li') 
-        
-        // if (hijas.length>0){
-        //     var newul= elemento.appendChild(ul);
-        //     console.log(hijas);
-        //     hijas.map(i=>{
-        //         return newul.appendChild(li).innerText=i.descripcion;
-        //     })
-
-            
-            
-        // }
-
-        setIdMenu(opcion.id)
-        
-    }
-    const addspace = (nivel)=>{
-        let space = ''
-        for (let i = 0; i < nivel; i++) {
-            space = space + '>'
-        }
-        
-        return space
-    }
-
-    return (<div className='Menu'>
-
-            <div className='tree'>
-                <ul >
-                    {console.log(menu)}
-                    {menu.map((i,index)=>{
-                        return<li key={i.opcion} onClick={e=>handleclick(i)} > { addspace(i.nivel) + i.descripcion} </li>
-                    })}
-
-
-                {/* {madres.map((op, index) => {
+    return (
+        <div className='Menu'>
+            {/* { menu.length === 0 && <p>Cargando Menu...</p>  } */}
+            {
+                <ul className='Menu'>
+                    {madres.map((op, index) => {
                         return <li key={op.madre.opcion}>{op.madre.descripcion}
-                            <ul >{op.hija.map(hi => <li key={hi.opcion}> {hi.descripcion}
-                                <ul> {getHijas(hi.opcion).map(i => <li key={i.opcion} onClick={e=>handleclick(i)}>{i.descripcion} 
-                                    <ul> {getHijas(i.opcion).map(j => <li key={j.opcion} onClick={e=>handleclick(j)}> {j.descripcion} 
-                                        <ul  > {getHijas(j.opcion).map(k => <li key={k.opcion}  onClick={e=>handleclick(k)}>{k.descripcion}
-                                            <ul  > {getHijas(k.opcion).map(h => <li key={h.opcion} onClick={e=>handleclick(h)}>{h.descripcion}
-                                                <ul  > {getHijas(h.opcion).map(l => <li key={l.opcion} onClick={e=>handleclick(l)}>{l.descripcion}
+                            <ul >{op.hija.map(hi => <li key={hi.opcion}>
+                                {hi.descripcion}
+                                <ul> {getHijas(hi.opcion).map(i => <li key={i.opcion}>
+                                    <Link to={'menu/' + i.id}>{i.descripcion}  </Link>
+                                    <ul  > {getHijas(i.opcion).map(j => <li key={j.opcion}>
+                                        <Link to={'menu/' + j.id}> {j.descripcion} </Link>
+                                        <ul  > {getHijas(j.opcion).map(k => <li key={k.opcion}>
+                                            <Link to={'menu/' + k.id}>{k.descripcion}</Link>
+                                            <ul  > {getHijas(k.opcion).map(h => <li key={h.opcion}>
+                                                <Link to={'menu/' + h.id}>{h.descripcion}</Link>
+                                                <ul  > {getHijas(h.opcion).map(l => <li key={l.opcion}>
+                                                    <Link to={'menu/' + l.id}>{l.descripcion}</Link>
                                                 </li>)}
                                                 </ul>
                                             </li>)}
@@ -120,18 +88,10 @@ function Menu(){
                                 </li>)}
                                 </ul>
                             </li>)}</ul></li>
-                    })} */}
+                    })}
                 </ul>
-            </div>
-            
-        
-        <div className="tarjetas">
-            <div className='ayuda'> 
-                <Cards  id={idMenu}/>
-            </div>
+            }
         </div>
-    </div>
-    
     )
 }
 export default Menu;

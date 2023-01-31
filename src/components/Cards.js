@@ -1,56 +1,19 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
 import Card from './Card'
 import './css/cards.css'
 import dataserver from '../dataserver';
 
 function Cards(props) {
-    const idOpcion = useParams()
+    
     const [ eventos,SetEventos ]= useState([])
     const [ documentos,SetDocumentos ]= useState([])    
     const [ faqs,SetFaqs ]= useState([])    
     const [ infoOpcion,SetinfoOpcion ]= useState([])
     const [ data,setData ]= useState([])
     
-    let endPoint = dataserver+'/menu/'+idOpcion.id
+    let endPoint = dataserver+'/menu/'+props.id
     
-
-    useEffect(() => {
-        if (props.data && props.data.length > 0 ){
-            setData(props.data)            
-            let eveloc = props.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
-            SetEventos(eveloc)
-            let docloc = props.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')
-            
-            SetDocumentos(docloc)            
-            let faq = props.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
-            
-            SetFaqs(faq)   
-
-        }else{
-            if (idOpcion.id !== undefined){
-                fetch(endPoint)
-                .then(response => response.json())
-                .then(data => {
-                    let eveloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'EVE')
-                    SetEventos(eveloc)
-                    let docloc = data.data.filter(opcion => opcion.msayuda[0].tipo === 'INT')                    
-                    SetDocumentos(docloc)            
-                    let faq = data.data.filter(opcion => opcion.msayuda[0].tipo === 'FAQ')
-                    SetFaqs(faq)                        
-                })
-                .catch(error => console.log(error));
-            }
-        }
-        
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        });
-    }, [])
-
     useEffect(() => {
         
         window.scroll({
@@ -87,15 +50,12 @@ function Cards(props) {
                 SetinfoOpcion(data.opcion.dataValues)
             })
             .catch(error => console.log(error));
-
           
         }
-    }, [idOpcion, data])
+    }, [ props.id])
 
 
-    
-
-    return  (   <>
+    return  (   <div className='ayuda'>
                 <h2>Ayuda de la opción {infoOpcion.descripcion}</h2>
 
                 <div className='minCards'>
@@ -152,7 +112,7 @@ function Cards(props) {
                     })}
                 </div>
                 
-            </>
+            </div>
         )
 }
 
