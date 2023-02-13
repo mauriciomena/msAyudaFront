@@ -18,7 +18,7 @@ function NavBar() {
                             <Link to='/documentos'> <li>Documentos</li></Link>
                             <Link to='/documentos'> <li>FAQ</li></Link>
                             <Link to='/documentos'> <li>Eventos</li></Link>
-                            <Link to='/sprint/8'>  <li>Sprint</li></Link>
+                            <Link to='/sprint/9'>  <li>Sprint</li></Link>
                         </ul>
                     </div>
                     {/* <Buscar /> */}
