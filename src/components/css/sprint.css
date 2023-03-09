@@ -75,4 +75,11 @@
     padding: 10px;
     border-radius: 3px;
 }
+.sprint .procesopor{
+    background-color: #919090;
+    color:#ffffff;
+    text-align: center;
+    width: 60%;
+    border-right:6px solid #ffe600 ;
+}
 .sprint .backlog .mincard {border-left:6px solid #ff6600  ;}
