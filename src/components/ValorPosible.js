@@ -82,10 +82,10 @@ function ValorPosible(props) {
                 <input type="hidden" name='id' value={data.id} />
                 
                 <label>Descripción:</label>
-                <input type="text"  name='denominacion_valor' onChange={e=>handdleDescripcion(e)} value={denoValor} />
+                <input type="text"  name='denominacion_valor' onChange={e=>handdleDescripcion(e)} value={denoValor} maxlength="50" />
                 
                 <label>Valor:</label>
-                <input type="text"  name='valor' onChange={e=>handdleValor(e)} value={valor} />
+                <input type="text"  name='valor' onChange={e=>handdleValor(e)} value={valor}  maxlength="50" />
                 
                 <label>Imagen Actual:</label>
                 <img src={data.imgurl} />
