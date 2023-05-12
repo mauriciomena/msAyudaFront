@@ -52,7 +52,7 @@ a {
   }
 }
 .footer {
-  margin: auto;
   text-align: center;
   color: gray;
+  position: inherit;
 }

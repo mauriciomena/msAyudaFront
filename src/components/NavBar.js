@@ -55,7 +55,8 @@ function NavBar() {
                             <Link to='/documentos'> <li>Documentos</li></Link>
                             <Link to='/documentos'> <li>FAQ</li></Link>
                             <Link to='/documentos'> <li>Eventos</li></Link>
-                            <Link to='/sprint/14'>  <li>Sprint</li></Link>
+                            <Link to='/sprint/15'>  <li>Sprint</li></Link>
+                            <Link to='/compilaciones'>  <li>Compilaciones</li></Link>
                             {/* <Link to='/login'>  <li>Iniciar Sesión</li> </Link> */}
 
                             {/* /prueba post senasa */}

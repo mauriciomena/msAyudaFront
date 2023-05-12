@@ -24,3 +24,5 @@ yarn-error.log*
 
 /src/dataserver.js
 /src/tareasServer.js
+
+/build

@@ -13,6 +13,7 @@ import EditNuevoDocumento from './EditNuevoDocumento';
 
 import Landing from './Landing';
 import Login from './User/Login';
+import InfoVersion from './dashboard/InfoVersion';
 
 
 function Contenedor() {
@@ -29,7 +30,9 @@ function Contenedor() {
             {/* <Route exact path="/menu/:id" element={<Cards />} ></Route> */}
             <Route exact path="/menu/evento/:id" element={<InfoAyuda />} ></Route>
             <Route exact path="/evento/edit/:id" element={<EditEvento />} ></Route>
+            
             <Route exact path="/sprint/:id" element={<Sprint />} ></Route>
+            <Route exact path="/compilaciones" element={<InfoVersion />} ></Route>            
             <Route exact path="/login" element={<Login />} ></Route>            
         </Routes>
 
