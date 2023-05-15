@@ -11,9 +11,6 @@ function App() {
       <div className='App'>
         <Contenedor/>
       </div>
-      <div className='footer'>
-          <h5>Macrosistemas SRL 2022</h5>
-      </div>
     </>
     
   );

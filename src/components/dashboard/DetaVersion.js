@@ -4,15 +4,21 @@ import './css/dashboard.css'
 
 function DetaVersion(  version ) {
     const [data, SetData] = useState([]);
-    
+    let endpoint = dataserver +'/entregas'
+
     useEffect(()=>{
-        const ver = version.version
-        const endpoint = dataserver +'/entregas/?version='+ver.version+'&'+'sistema='+ver.sistema
         
+        const ver = version.version
+        
+        if (ver.version > 0 ){
+           endpoint = dataserver +'/entregas/?version='+ver.version+'&'+'sistema='+ver.sistema
+        } else{            
+           endpoint = dataserver +'/entregas/fordate?inicial='+ver.inicial+'&'+'final='+ver.final
+        }
+
         fetch(endpoint)
         .then(response => response.json())
         .then(data=>{            
-
             const incidentes = data.data.map( incidente => {
                 //let fechaFormateada = `${incidente.fecha.substring(10,2)}/${incidente.fecha.substring(4,2)}/${incidente.fecha.substring(0,4)}`
                 let fechaFormateada = `${incidente.fecha.substring(8,10)}-${incidente.fecha.substring(5,7)}-${incidente.fecha.substring(0,4)}`
@@ -28,15 +34,20 @@ function DetaVersion(  version ) {
     },[version]);
 
     return ( <div id='DetaVersion'>
-          { version.version.version && <h3> Detalle de la versión {version.version.version} de {version.version.deno_sistema} </h3>}
+          { version.version.version  > 0 && <h3> Detalle de la versión {version.version.version} de {version.version.deno_sistema} </h3>}
+          
           <ul>
           { data && data.length > 0 &&
-                data.map(incidente => {
+                data.map((incidente, index) => {
                     return (
-                    <li key={incidente.id} > 
+                    <li key={incidente.id  + index} > 
+                        
                         <h4 className='titulo'> 
-                            <i className={incidente.tipo_incidente==='E' || incidente.tipo_incidente==='R'?"fa-solid fa-bug":"fa-solid fa-check"}></i>
+                            <i className={incidente.tipo_incidente==='E' || incidente.tipo_incidente==='R'?"fa-solid fa-bug":"fa-solid fa-circle-info fa-beat"}></i>
+                            
+                            {  version.version.inicial? `${incidente.deno_sistema} Versión: ${incidente.version}` :'' }
                             {incidente.fecha} {incidente.asunto} {incidente.deno_tipo_incidente}
+                            
                         </h4>
                         <p> {incidente.tarea} incidente: {incidente.id}</p>
                     </li>

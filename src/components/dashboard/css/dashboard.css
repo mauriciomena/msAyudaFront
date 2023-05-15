@@ -4,6 +4,34 @@
     margin: auto;
 }
 
+.fecha{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #ffff;
+    border-radius: 4px;
+    font-size: 1em;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    border: 1px #ff6600 solid;
+}
+.btn{
+    margin:5px;
+    padding: 10px;
+    color: #ffff;
+    background-color: #ff6600;
+    border-radius: 4px;
+    font-size: 1em;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    border:none;
+}
+
+i{
+    font-size: 1.5em;
+}
+
+
+
 .DropDownVersion{
     margin: auto;
     margin-top: 5px;

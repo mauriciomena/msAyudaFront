@@ -6,7 +6,7 @@
   text-align: center;
   display: flex;
   align-content: stretch;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   border: #61dafb 2px;
   box-sizing: border-box;
