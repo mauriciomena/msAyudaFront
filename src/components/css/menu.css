@@ -1,5 +1,8 @@
 .Menu{
+    margin-top: 10px ;
     display: flex;
+    background-color: rgb(167, 166, 166);
+    border-radius: 6px;
 }
 
 .Menu .invisible{
@@ -8,10 +11,14 @@
 
 .tree {
     background-color: #ffff;
+    border: 1px solid grey;
+    border-radius: 6px;
     align-self: start;
     text-align: left;  
     text-decoration: none;
     width: 25%;
+    height: 100vh;
+    overflow:scroll;
 }
 .Menu a {
     text-decoration: none;
@@ -23,4 +30,5 @@
     width: 75%;
     margin-bottom: auto;
     padding: 30px;
+    
 }

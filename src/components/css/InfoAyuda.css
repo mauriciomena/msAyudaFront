@@ -46,12 +46,12 @@
 
 .InfoAyuda .valorPosible{
     display: flex;
-    background-color: #ffff;
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
     margin: 3px;
-    border-left:6px solid #8e9294 ;
+    border:0.5px solid grey;
+    border-radius: 6px; 
     box-shadow: 10px 5px 5px #9c9b9b;
 }
 

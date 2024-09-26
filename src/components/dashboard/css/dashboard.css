@@ -12,7 +12,6 @@
     background-color: #ffff;
     border-radius: 4px;
     font-size: 1em;
-    box-shadow: 10px 5px 5px #9c9b9b;
     border: 1px #ff6600 solid;
 }
 .btn{
@@ -27,7 +26,7 @@
 }
 
 i{
-    font-size: 1.5em;
+    font-size: 15px;
 }
 
 
@@ -41,18 +40,27 @@ i{
     background-color: #ffff;
     border-radius: 4px;
     font-size: 1em;
-    box-shadow: 10px 5px 5px #9c9b9b;
     border: 1px #ff6600 solid;
 }
 #DetaVersion{
-    color: #ff6600;    
-    background-color: #dadada;
     height: 80vh;
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin:auto;
 }
 #DetaVersion ul{
     text-align: left;
     color: #000;
+    margin-top: 5px;
+}
+
+#DetaVersion li{
+    border-radius: 6px;
+    border: 0.5px solid grey;
+    padding: 6px;
+    text-align: left;
+    color: #000;
     font-size: 0.8em;
+    margin-top: 5px;
 }

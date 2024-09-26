@@ -1,13 +1,14 @@
 import './App.css';
-import NavBar from './components/NavBar'
+
 import Contenedor from './components/Contenedor';
+import Navibar from './components/Navibar';
 
 
 
 function App() {
   return (
     <>
-      <NavBar />
+      <Navibar />
       <div className='App'>
         <Contenedor/>
       </div>

@@ -162,11 +162,11 @@ function NuevoDocumento(props) {
             })
             setTotalErrores( totalErrores ++ )
         } else
-            if (tipo === 'EVE' && valor.length > 16){
+            if (tipo === 'EVE' && valor.length > 50){
                 setErrores({
                     ...errores,
                     titulo: {
-                        msg: 'El evento no puede contener más de 16 caracteres '
+                        msg: 'El evento no puede contener más de 50 caracteres'
                     }
                 })
             }
@@ -257,7 +257,7 @@ function NuevoDocumento(props) {
                                         type='text'
                                         id='etiquetas'
                                         placeholder='#etiqueta'
-                                        maxlength="50" />
+                                        maxlength="1000" />
                                 </label>
                                 {errores && errores.etiqueta && <p>{errores.etiqueta.msg}</p>}
                             </div>
@@ -270,7 +270,7 @@ function NuevoDocumento(props) {
                                         id="documento"
                                         required
                                         name="documento"
-                                        accept="*.pdf" />
+                                        accept=".pdf, .doc,.docx, .mp4" />
                                     {errores && errores.documento && <p>{errores.msg}</p>}
                                 </div>
                             }

@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -10,7 +12,7 @@
   flex-wrap: nowrap;
   border: #61dafb 2px;
   box-sizing: border-box;
-  background-color: #dadada;
+  /* background-color: #dadada; */
   
 }
 

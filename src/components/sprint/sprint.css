@@ -1,0 +1,51 @@
+#conenedorsp{
+    position: absolute;
+    
+    left: 0;
+    height: 100vh;
+    width: 120vw;
+}
+
+.sprint{
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-wrap: nowrap;
+    box-sizing: revert;
+    gap: 3px;
+    
+    p{font-size: 13px;}
+    
+    .columna{
+        align-content: baseline;
+        align-items: center;
+        gap: 2px;
+        display: flex;
+        /* box-sizing: border-box; */
+        flex-wrap: wrap;
+        /* background-color: whitesmoke; */
+        .titulo{
+            width: 100%;
+            border-left:6px solid gray  ;            
+
+        }
+    }
+}
+
+.sprint .backlog .spcard {border-left:6px solid #1900ff  ;}
+.sprint .hacer .spcard {border-left:6px solid #ff6600  ;}
+.sprint .proceso .spcard {border-left:6px solid #00bbff  ;}
+.sprint .testing .spcard {border-left:6px solid #f48181  ;}
+.sprint .testingok .spcard {border-left:6px solid #ff00ff  ;}
+.sprint .hecho .spcard {border-left:6px solid #0b9e00  ;}
+.sprint .minspcard{
+    background-color: #9c9b9b;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    width:auto;
+    padding: 10px;
+    border-radius: 6px;   
+
+}
+
+.sprint .backlog .minspcard {border-left:6px solid #ff6600  ;}

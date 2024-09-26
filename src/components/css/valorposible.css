@@ -9,7 +9,7 @@
     padding: 5px;
     background-color: #9c9b9b;
     margin: 10px;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 #valorposible form{
     width: 100%;
@@ -44,7 +44,7 @@
 
 #valorposible input{
     margin: 5px;
-    box-shadow: 10px 5px 5px #9c9b9b;
+    /* box-shadow: 10px 5px 5px #9c9b9b; */
     width: 70% ;
 }
 #valorposible .alerta{

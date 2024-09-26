@@ -88,7 +88,7 @@ function InfoAyuda() {
                      <div className='valoresposibles'>
                         <h3>Valores Posibles:</h3>
                         { valores.map(evento=>{
-                            console.log(evento);
+                            
                             let tarjeta = {
                                 evento :       ayuda.denominacion,
                                 id:            evento.id, 
@@ -96,7 +96,6 @@ function InfoAyuda() {
                                 valor : evento.valor,
                                 imagen: evento.imgurl
                                 };                
-                            
                             return( <div className='valorPosible'>
 
                                     <p onClick={()=>copiarAlPortapapeles( tarjeta)}>
@@ -104,7 +103,7 @@ function InfoAyuda() {
                                     </p>
                                     <p>  Indica que: {tarjeta.denominacion}  cuando el objeto está en: {tarjeta.valor} </p>
                                     <div className='imagen' >
-                                        { !(tarjeta.imagen.length === 0) && (<img src={tarjeta.imagen}/>) }
+                                        { !(tarjeta.imagen.length === 0) && (<img alt='' src={tarjeta.imagen}/>) }
                                     </div>
                                     <div>
                                         {(tarjeta.imagen.length === 0) && (<p onClick={() => { handleClick(tarjeta.id) }} className='col-4'> <i class="fa-solid fa-circle-plus"></i> Agregar imagen </p>)}                                    
@@ -116,9 +115,10 @@ function InfoAyuda() {
                     }
                     <h3>Opciones relacionadas:</h3>
                     {ayuda.opciones && ayuda.opciones.length > 0 && ayuda.opciones.map((   opcion,index) => {return <p key={index}>{opcion.vw_menu.opcion}</p>})}
-                    {ayuda.imgurl && <embed className='visor' src={ayuda.imgurl} type="application/pdf" /> }
-
-                   
+                    
+                    {(ayuda.imgurl && ayuda.imgurl.slice(-4)==='.mp4') && <video className='visor' src={ayuda.imgurl} controls >Tu navegador no admite el elemento   <code>video</code>.</video>}
+                    {(ayuda.imgurl && ayuda.imgurl.slice(-4)!=='.mp4') && <embed className='visor' src={ayuda.imgurl} type="application/pdf" /> }
+                  
 
                 </div> 
             </>

@@ -79,7 +79,7 @@ function Documentos() {
         <Link to='/nuevodocumento'>
                 <div className="cardAdd">
                     <div className='titulo'>
-                        <h3><i class="fa-solid fa-file"></i>    Nuevo Documento</h3>
+                        <h5><i class="fa-solid fa-file"></i> Nuevo Documento</h5>
                     </div>
                     {/* <p>permite ingresar un documento y relacionarlo a una o varias opciones del menú</p> */}
                 </div>
@@ -88,7 +88,7 @@ function Documentos() {
             <Link to='/nuevafaq'>
                 <div className="cardAdd">
                     <div className='titulo'>
-                        <h3><i class="fa-solid fa-clipboard-question"></i>     Nueva Pregunta Frecuente</h3>
+                        <h5><i class="fa-solid fa-clipboard-question"></i> Nueva FAQ    </h5>
                     </div>
                     {/* <p>permite ingresar una pregunta frecuente  y relacionarlo a una o varias opciones del menú</p> */}
                 </div>
@@ -97,37 +97,25 @@ function Documentos() {
             <Link to='/nuevoevento'>
                 <div className="cardAdd">
                     <div className='titulo'>
-                        <h3><i class="fa-solid fa-gears"></i>    Nuevo Evento</h3>
+                        <h5><i class="fa-solid fa-gears"></i>    Nuevo Evento</h5>
                     </div>
-                    
                     {/* <p>permite ingresar un nuevo evento  a una o varias opciones del menú</p> */}
                 </div>
             </Link>  
             <div className='buscar'>
                 <form>
-                    <input  ref={buscado} onChange={buscar} type="text" placeholder='Buscá aquí tus preguntas frecuentes , eventos , documentos '/>
+                    <label>Buscador de eventos documentos y faqs:</label>
+                    <input  ref={buscado} onChange={buscar} type="text" placeholder='como configurar...'/>
                 </form>
-
+                <br />
                 
                 {/* <img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://www.macrosistemassrl.com.ar&amp;choe=UTF-8" /> */}
-                
+                <hr />
                  
+                <h3>Últimas entradas:</h3>
+                
                 <div className='cards'>
-                    {faqs.length !== 0 && faqs.map((faq,index) => {
-                        let tarjeta = {
-                            id: faq.id,
-                            denominacion: '¿'+faq.denominacion+'?',
-                            destalle: faq.destalle,
-                            palabra_clave: faq.palabra_clave,
-                            fecha_actualizacion: faq.fecha_actualizacion,
-                            etiquetas: faq.etiquetas,
-                            tipo:'FAQ'
-                        };
-
-                        return <LongCard key={index*1000} evento={{ ...tarjeta }} />
-                    })}
-                </div> 
-                <div className='cards'>
+                    <h4>Eventos</h4>
                     {eventos.length !== 0 && eventos.map(( ev,index ) =>{         
                         
                         let tarjeta = {
@@ -144,6 +132,7 @@ function Documentos() {
                     })}
                 </div> 
                 <div className='cards'>
+                    <h4>Documentos</h4>
                     {documentos.length !== 0 && documentos.map((documento,index) => {
                         let tarjeta = {
                             id: documento.id,
@@ -158,6 +147,22 @@ function Documentos() {
                         return <LongCard key={index*100} evento={{ ...tarjeta }} />
                     })}
                 </div>                
+                <div className='cards'>
+                    <h4>Faqs</h4>
+                    {faqs.length !== 0 && faqs.map((faq,index) => {
+                        let tarjeta = {
+                            id: faq.id,
+                            denominacion: '¿'+faq.denominacion+'?',
+                            destalle: faq.destalle,
+                            palabra_clave: faq.palabra_clave,
+                            fecha_actualizacion: faq.fecha_actualizacion,
+                            etiquetas: faq.etiquetas,
+                            tipo:'FAQ'
+                        };
+
+                        return <LongCard key={index*1000} evento={{ ...tarjeta }} />
+                    })}
+                </div> 
             </div>
     
                           

@@ -1,0 +1,100 @@
+.spcard{    
+    background-color: #ffffff;
+    box-shadow: 10px 5px 5px #9c9b9b;
+    border-radius: 6px;
+    border: 1px gray  solid ;
+    padding: 2px;
+    font-size: small;
+    text-align: left;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.spcard:hover{
+    background-color: #e6e6e6;
+    border: 0.5px solid #221811 ;
+}
+.cardsm{    
+    width: 200px;
+    height: 90px;
+}
+.cardmx{
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+}
+.sticks{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    
+    .puntos{
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        align-self: flex-end;
+        filter: drop-shadow(2px 3px 4px #9c9b9b);
+    }
+
+    .difuno{
+        border: 1px solid green;
+        background-color: green;
+        color: white;
+        
+    }
+    .difdos{
+        border: 1px solid orange;
+        background-color: yellow;
+        color:orange;
+        
+        }
+    .diftres{
+        border: 1px solid orange;
+        background-color: orange;
+        color: white;
+        
+    }
+    .difmayor{
+        border: 1px solid red;
+        background-color: red;
+        color: white;        
+    }
+    .procesopor{
+        align-self: flex-start;
+        align-items: center;
+        display: flex;
+        height: 20px;
+        background-color:#20b632;
+        color:  white;
+        text-align: center;
+        padding: 1px 2px 1px 2px;
+        border-radius: 2px;
+        span{
+            font-size: 10px;
+        }
+        /* filter: drop-shadow(2px 3px 4px #9c9b9b); */
+   }
+    .alert{
+        width: 16px;
+        height: 16px;
+        color: red;
+        /* filter: drop-shadow(1px 2px 2px red); */
+    }
+    .prior{
+        width: 16px;
+        height: 16px;
+        color: grey;
+        /* filter: drop-shadow(1px 2px 2px red); */
+    }
+
+}

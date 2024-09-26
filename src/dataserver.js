@@ -1,2 +1,2 @@
-export default 'http://192.168.10.22:8000' //serverweb
-//export default 'http://192.168.10.95:8000'  //mauri
+export default 'http://192.168.10.121:8000' //serverweb
+//export default 'http://localhost:8000'  //mauri

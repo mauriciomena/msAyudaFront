@@ -1,7 +1,7 @@
 .cards{
     margin: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     box-sizing: border-box;
     margin: 1%;
@@ -33,7 +33,7 @@
     margin: 3px;
      background-color: #ffff;  
     border-left:6px solid #1e81b0 ;
-    box-shadow: 10px 5px 5px #9c9b9b;
+    /* box-shadow: 10px 5px 5px #9c9b9b; */
     transition: 0.5s;
   }
 

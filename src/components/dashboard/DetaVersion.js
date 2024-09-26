@@ -41,14 +41,12 @@ function DetaVersion(  version ) {
                 data.map((incidente, index) => {
                     return (
                     <li key={incidente.id  + index} > 
+                        <i className={incidente.tipo_incidente==='E' || incidente.tipo_incidente==='R'?"fa-solid fa-bug":"fa-solid fa-circle-info"}></i>
                         
-                        <h4 className='titulo'> 
-                            <i className={incidente.tipo_incidente==='E' || incidente.tipo_incidente==='R'?"fa-solid fa-bug":"fa-solid fa-circle-info fa-beat"}></i>
-                            
-                            {  version.version.inicial? `${incidente.deno_sistema} Versión: ${incidente.version}` :'' }
-                            {incidente.fecha} {incidente.asunto} {incidente.deno_tipo_incidente}
-                            
-                        </h4>
+                        <span>{  version.version.inicial? `${incidente.deno_sistema} Versión: ${incidente.version}` :'' }</span>
+                        <br/>
+                        <span>{incidente.fecha} {incidente.asunto} {incidente.deno_tipo_incidente} </span>
+                        <br/>
                         <p> {incidente.tarea} incidente: {incidente.id}</p>
                     </li>
                     )
